@@ -1,5 +1,5 @@
 import { delay } from 'utils/time'
-import { debounce } from './2627-debounce'
+import {} from './2627-debounce'
 
 it('debounce() should work', async () => {
   let c = 0

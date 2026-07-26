@@ -12,7 +12,8 @@
       "*": ["*"]
     },
     "strict": true,
-    "target": "ESNext"
+    "target": "ESNext",
+    "types": ["vitest/globals"],
   },
   "exclude": ["node_modules", "./src/**/*.spec.ts", ".vscode", "coverage"],
   "include": ["src/**/*.ts", "src/**/*.test.ts"],
