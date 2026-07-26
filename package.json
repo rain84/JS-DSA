@@ -5,19 +5,18 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "nodemon ./src/index.js",
-    "test": "jest --watchAll",
+    "test": "vitest",
     "tsc": "npx tsc"
   },
   "author": "Aleksandr Gerasimov <rainy_sky@mail.ru>",
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.5.5",
     "@datastructures-js/priority-queue": "5.4.0",
-    "@types/jest": "^29.5.14",
-    "@types/node": "22.13.11",
-    "jest": "^29.7.0",
-    "nodemon": "^3.1.9",
-    "numstree": "2.1.0"
+    "@types/node": "26.1.1",
+    "nodemon": "^3.1.14",
+    "numstree": "2.1.0",
+    "vitest": "^4.1.10"
   },
   "type": "module",
   "nodemonConfig": {
@@ -30,8 +29,8 @@
     ]
   },
   "dependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.26.3",
-    "@babel/preset-typescript": "^7.26.0"
+    "@babel/plugin-transform-modules-commonjs": "^8.0.1",
+    "@babel/preset-typescript": "^8.0.1"
   },
-  "packageManager": "pnpm@10.6.5"
+  "packageManager": "pnpm@11.17.0"
 }
