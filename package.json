@@ -1,36 +1,37 @@
 {
-  "name": "javascript_algotithms_and_data_structures",
-  "version": "1.0.0",
-  "description": "",
-  "main": "./src/index.js",
-  "scripts": {
-    "start": "nodemon ./src/index.js",
-    "test": "vitest",
-    "tsc": "npx tsc"
-  },
-  "author": "Aleksandr Gerasimov <rainy_sky@mail.ru>",
-  "license": "MIT",
-  "devDependencies": {
-    "@biomejs/biome": "^2.5.5",
-    "@datastructures-js/priority-queue": "5.4.0",
-    "@types/node": "26.1.1",
-    "nodemon": "^3.1.14",
-    "numstree": "2.1.0",
-    "vitest": "^4.1.10"
-  },
-  "type": "module",
-  "nodemonConfig": {
-    "ext": "js, mjs, ts",
-    "ignore": [
-      "*.tmp.js",
-      "tmp.js",
-      "*.tmp.ts",
-      "tmp.ts"
-    ]
-  },
-  "dependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^8.0.1",
-    "@babel/preset-typescript": "^8.0.1"
-  },
-  "packageManager": "pnpm@11.17.0"
+	"name": "javascript_algotithms_and_data_structures",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./src/index.js",
+	"scripts": {
+		"start": "nodemon ./src/index.js",
+		"test": "vitest",
+		"tsx": "pnpm exec tsx watch"
+	},
+	"author": "Aleksandr Gerasimov <rainy_sky@mail.ru>",
+	"license": "MIT",
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.5",
+		"@datastructures-js/priority-queue": "5.4.0",
+		"@types/node": "26.1.1",
+		"nodemon": "^3.1.14",
+		"numstree": "2.1.0",
+		"tsx": "^4.23.1",
+		"vitest": "^4.1.10"
+	},
+	"type": "module",
+	"nodemonConfig": {
+		"ext": "js, mjs, ts",
+		"ignore": [
+			"*.tmp.js",
+			"tmp.js",
+			"*.tmp.ts",
+			"tmp.ts"
+		]
+	},
+	"dependencies": {
+		"@babel/plugin-transform-modules-commonjs": "^8.0.1",
+		"@babel/preset-typescript": "^8.0.1"
+	},
+	"packageManager": "pnpm@11.17.0"
 }
