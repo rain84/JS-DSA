@@ -1,23 +1,18 @@
 {
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src",
-    "downlevelIteration": true,
-    "inlineSourceMap": true,
-    "lib": ["DOM", "ESNext", "ES2022"],
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "outDir": "out",
-    "paths": {
-      "*": ["*"]
-    },
-    "strict": true,
-    "target": "ESNext",
-    "types": ["vitest/globals", "node"],
-  },
-  "exclude": ["node_modules", "./src/**/*.spec.ts", ".vscode", "coverage"],
-  "include": ["src/**/*.ts", "src/**/*.test.ts"],
-  "ts-node": {
-    "esm": true
-  }
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"inlineSourceMap": true,
+		"lib": ["DOM", "ESNext", "ES2022"],
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"outDir": "out",
+		"paths": {
+			"*": ["./src/*"]
+		},
+		"strict": true,
+		"target": "ESNext",
+		"types": ["vitest/globals", "node"]
+	},
+	"exclude": ["node_modules", "./src/**/*.spec.ts", ".vscode", "coverage"],
+	"include": ["src/**/*.ts", "src/**/*.test.ts"]
 }

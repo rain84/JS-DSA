@@ -6,7 +6,10 @@
 	"scripts": {
 		"start": "nodemon ./src/index.js",
 		"test": "vitest",
-		"tsx": "pnpm exec tsx watch"
+		"tsx": "pnpm exec tsx watch",
+		"lint": "biome check .",
+		"format": "biome format --write .",
+		"typecheck": "tsc --noEmit"
 	},
 	"author": "Aleksandr Gerasimov <rainy_sky@mail.ru>",
 	"license": "MIT",
@@ -17,6 +20,7 @@
 		"nodemon": "^3.1.14",
 		"numstree": "2.1.0",
 		"tsx": "^4.23.1",
+		"typescript": "^7.0.2",
 		"vitest": "^4.1.10"
 	},
 	"type": "module",
@@ -33,5 +37,5 @@
 		"@babel/plugin-transform-modules-commonjs": "^8.0.1",
 		"@babel/preset-typescript": "^8.0.1"
 	},
-	"packageManager": "pnpm@11.17.0"
+	"packageManager": "pnpm@11.18.0+sha512.33d83c77da82f49fba836925c6f1b841181ec3132b670639bd012f7075f5c7cf634c5f870147c19aae7478fac01df09d8892e880454896edd23ee9b33757563c"
 }
