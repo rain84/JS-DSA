@@ -5,7 +5,7 @@
 	"main": "./src/index.js",
 	"scripts": {
 		"start": "nodemon ./src/index.js",
-		"test": "vitest",
+		"test": "vitest --ui",
 		"tsx": "pnpm exec tsx watch",
 		"lint": "biome check .",
 		"format": "biome format --write .",
@@ -17,6 +17,7 @@
 		"@biomejs/biome": "^2.5.5",
 		"@datastructures-js/priority-queue": "5.4.0",
 		"@types/node": "26.1.1",
+		"@vitest/ui": "^4.1.10",
 		"nodemon": "^3.1.14",
 		"numstree": "2.1.0",
 		"tsx": "^4.23.1",
