@@ -17,40 +17,40 @@
  */
 
 export function lemonadeChange(bills: number[]): boolean {
-  let [five, ten] = [0, 0]
+	let [five, ten] = [0, 0]
 
-  for (const x of bills) {
-    switch (x) {
-      case 5:
-        five++
-        break
+	for (const x of bills) {
+		switch (x) {
+			case 5:
+				five++
+				break
 
-      case 10:
-        five--
-        ten++
-        break
+			case 10:
+				five--
+				ten++
+				break
 
-      case 20:
-        if (ten) {
-          five--
-          ten--
-        } else five -= 3
-        break
-    }
+			case 20:
+				if (ten) {
+					five--
+					ten--
+				} else five -= 3
+				break
+		}
 
-    if (five < 0) return false
-  }
+		if (five < 0) return false
+	}
 
-  return true
+	return true
 }
 
 /** One-liner */
 export const lemonadeChange2 = (bills: number[], f = 0, t = 0): boolean =>
-  bills.every(
-    (x) => (
-      (!(x ^ 5) && ++f) ||
-        (!(x ^ 10) && (--f, ++t)) ||
-        (!(x ^ 20) && (t ? (f--, t--) : (f -= 3), 1)),
-      f >= 0
-    )
-  )
+	bills.every(
+		(x) => (
+			(!(x ^ 5) && ++f) ||
+				(!(x ^ 10) && (--f, ++t)) ||
+				(!(x ^ 20) && (t ? (f--, t--) : (f -= 3), 1)),
+			f >= 0
+		),
+	)

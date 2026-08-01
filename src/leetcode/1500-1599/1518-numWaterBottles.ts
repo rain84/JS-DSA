@@ -3,11 +3,11 @@
  * {@link https://leetcode.com/problems/water-bottles/ | Link}
  */
 export function numWaterBottles(numBottles: number, numExchange: number): number {
-  let res = numBottles
+	let res = numBottles
 
-  for (; numBottles >= numExchange; res++) {
-    numBottles -= numExchange - 1
-  }
+	for (; numBottles >= numExchange; res++) {
+		numBottles -= numExchange - 1
+	}
 
-  return res
+	return res
 }

@@ -2,24 +2,24 @@
 // import { input } from './input'
 
 export const uniqueLargest = (sizeOfArray, arr) => {
-  arr = [...new Set(arr)]
+	arr = [...new Set(arr)]
 
-  let j = sizeOfArray
+	let j = sizeOfArray
 
-  do {
-    for (let i = arr.length - 1; i > sizeOfArray - j; i--) {
-      if (arr[i] > arr[i - 1]) {
-        ;[arr[i], arr[i - 1]] = [arr[i - 1], arr[i]]
-      }
-    }
-  } while (j--)
+	do {
+		for (let i = arr.length - 1; i > sizeOfArray - j; i--) {
+			if (arr[i] > arr[i - 1]) {
+				;[arr[i], arr[i - 1]] = [arr[i - 1], arr[i]]
+			}
+		}
+	} while (j--)
 
-  arr.length = sizeOfArray
-  for (let i = 0; i < sizeOfArray; i++) {
-    if (arr[i] === undefined) arr[i] = -1
-  }
+	arr.length = sizeOfArray
+	for (let i = 0; i < sizeOfArray; i++) {
+		if (arr[i] === undefined) arr[i] = -1
+	}
 
-  return arr
+	return arr
 }
 
 export const largestAndSecondLargest = (sizeOfArray, arr) => uniqueLargest(2, arr)

@@ -9,19 +9,19 @@
 // nums = [3, 4, 7, 12, 29], target = 5, return 2.
 
 export const getIndex = (
-  arr,
-  target,
-  left = 0,
-  right = arr.length,
-  middle = ~~((left + right) / 2),
-  el = arr[middle]
+	arr,
+	target,
+	left = 0,
+	right = arr.length,
+	middle = ~~((left + right) / 2),
+	el = arr[middle],
 ) => {
-  if (el === target || left === right) return middle
-  if (arr[right - 1] <= target) return right
-  if (target <= arr[left]) return left
+	if (el === target || left === right) return middle
+	if (arr[right - 1] <= target) return right
+	if (target <= arr[left]) return left
 
-  if (0 < target - el) left = middle
-  else right = middle
+	if (0 < target - el) left = middle
+	else right = middle
 
-  return getIndex(arr, target, left, right)
+	return getIndex(arr, target, left, right)
 }

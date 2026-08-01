@@ -7,48 +7,48 @@ import type { TreeNode } from '../utils/tree'
  * than 2nd (closestValue2)
  */
 export function closestValue(root: TreeNode | null, target: number): number {
-  if (!root) return Number.NaN
+	if (!root) return Number.NaN
 
-  let res = 0
-  let diff = Number.POSITIVE_INFINITY
+	let res = 0
+	let diff = Number.POSITIVE_INFINITY
 
-  while (root) {
-    const next = Math.abs(target - root.val)
+	while (root) {
+		const next = Math.abs(target - root.val)
 
-    if (next < diff || (next === diff && root.val < res)) {
-      diff = next
-      res = root.val
-    }
+		if (next < diff || (next === diff && root.val < res)) {
+			diff = next
+			res = root.val
+		}
 
-    root = target < root.val ? root.left : root.right
-  }
+		root = target < root.val ? root.left : root.right
+	}
 
-  return res
+	return res
 }
 
 /** Solved with DFS-recursion */
 export function closestValue2(root: TreeNode | null, target: number): number {
-  if (!root) return Number.NaN
+	if (!root) return Number.NaN
 
-  let res = 0
-  let diff = Number.POSITIVE_INFINITY
+	let res = 0
+	let diff = Number.POSITIVE_INFINITY
 
-  const dfs = (node: TreeNode | null): undefined => {
-    if (!node) return
+	const dfs = (node: TreeNode | null): undefined => {
+		if (!node) return
 
-    const next = Math.abs(target - node.val)
+		const next = Math.abs(target - node.val)
 
-    if (next < diff || (next === diff && node.val < res)) {
-      diff = next
-      res = node.val
-    }
+		if (next < diff || (next === diff && node.val < res)) {
+			diff = next
+			res = node.val
+		}
 
-    node = target < node.val ? node.left : node.right
+		node = target < node.val ? node.left : node.right
 
-    return dfs(node)
-  }
+		return dfs(node)
+	}
 
-  dfs(root)
+	dfs(root)
 
-  return res
+	return res
 }

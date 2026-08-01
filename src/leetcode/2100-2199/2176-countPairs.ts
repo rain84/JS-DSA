@@ -4,16 +4,16 @@
  * Topics: Array
  */
 export function countPairs(nums: number[], k: number): number {
-  const n = nums.length
-  let res = 0
+	const n = nums.length
+	let res = 0
 
-  for (let i = 0; i < n - 1; i++) {
-    for (let j = i + 1; j < n; j++) {
-      if (nums[i] === nums[j] && (i * j) % k === 0) {
-        res++
-      }
-    }
-  }
+	for (let i = 0; i < n - 1; i++) {
+		for (let j = i + 1; j < n; j++) {
+			if (nums[i] === nums[j] && (i * j) % k === 0) {
+				res++
+			}
+		}
+	}
 
-  return res
+	return res
 }

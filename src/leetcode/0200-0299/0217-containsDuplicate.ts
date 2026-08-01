@@ -4,12 +4,12 @@
  *
  */
 export function containsDuplicate(nums: number[]): boolean {
-  const hashes: Record<string, boolean> = {}
+	const hashes: Record<string, boolean> = {}
 
-  for (const x of nums) {
-    if (hashes[x]) return true
-    hashes[x] = true
-  }
+	for (const x of nums) {
+		if (hashes[x]) return true
+		hashes[x] = true
+	}
 
-  return false
+	return false
 }

@@ -5,7 +5,7 @@ let start = performance.now()
 let c = n
 let x = 0
 while (c--) {
-  x = x % 2
+	x = x % 2
 }
 console.log(performance.now() - start)
 
@@ -14,6 +14,6 @@ start = performance.now()
 c = n
 x = 0
 while (c--) {
-  x = x & 1
+	x = x & 1
 }
 console.log(performance.now() - start)

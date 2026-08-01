@@ -11,28 +11,28 @@ const d: Direction = 'bottom left'
 // *****************************************************************************
 function makeId<T extends number, U extends number>(first: T, second: U): `${T}-${U}`
 function makeId<T extends string, U extends string>(
-  first: T,
-  second: U
+	first: T,
+	second: U,
 ): `${Capitalize<T>}-${Capitalize<U>}` {
-  return `${capitalize(first)}-${capitalize(second)}`
+	return `${capitalize(first)}-${capitalize(second)}`
 }
 
 // *****************************************************************************
 // Key Remapping in Mapped Types
 const obj = { value1: 0, value2: 1, value3: 3 }
 let newObj: {
-  [Property in keyof typeof obj as `_${Property}`]: (typeof obj)[Property]
+	[Property in keyof typeof obj as `_${Property}`]: (typeof obj)[Property]
 }
 
 // *****************************************************************************
 // Instantiation Expressions
 function identity<T>(items: T[]): T[] {
-  return items
+	return items
 }
 
 // old way
 function makeStringList(text: string[]) {
-  return identity(text)
+	return identity(text)
 }
 makeStringList(['text', 'text 2'])
 
@@ -58,28 +58,28 @@ type C = FirstNew<[string, number, boolean]>
 // *****************************************************************************
 // The satisfies Operator
 {
-  const obj = {
-    fireTruck: [255, 0, 0],
-    bush: '#00ff00',
-    ocean: [0, 0, 255],
-  }
-  const rgb1 = obj.fireTruck[0] // typed as number
-  const hex = obj.bush // typed as string
+	const obj = {
+		fireTruck: [255, 0, 0],
+		bush: '#00ff00',
+		ocean: [0, 0, 255],
+	}
+	const rgb1 = obj.fireTruck[0] // typed as number
+	const hex = obj.bush // typed as string
 
-  const objOld: Record<string, string | [number, number, number]> = {
-    fireTruck: [255, 0, 0],
-    bush: '#00ff00',
-    ocean: [0, 0, 255],
-  }
-  const rgb1Old = objOld.fireTruck[0] // typed as string | number
-  const hexOld = objOld.bush // typed as string | number
+	const objOld: Record<string, string | [number, number, number]> = {
+		fireTruck: [255, 0, 0],
+		bush: '#00ff00',
+		ocean: [0, 0, 255],
+	}
+	const rgb1Old = objOld.fireTruck[0] // typed as string | number
+	const hexOld = objOld.bush // typed as string | number
 
-  const objNew = {
-    fireTruck: [255, 0, 0],
-    bush: '#00ff00',
-    ocean: [0, 0, 255],
-  } satisfies Record<string, string | [number, number, number]>
-  // And we still have the typings of the properties, the array even got more accurate by becoming a tuple.
-  const rgb1New = objNew.fireTruck[0] // typed as number
-  const hexNew = objNew.bush // typed as string
+	const objNew = {
+		fireTruck: [255, 0, 0],
+		bush: '#00ff00',
+		ocean: [0, 0, 255],
+	} satisfies Record<string, string | [number, number, number]>
+	// And we still have the typings of the properties, the array even got more accurate by becoming a tuple.
+	const rgb1New = objNew.fireTruck[0] // typed as number
+	const hexNew = objNew.bush // typed as string
 }

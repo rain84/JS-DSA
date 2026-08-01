@@ -4,29 +4,29 @@
  *
  */
 export function lengthOfLongestSubstring(s: string): number {
-  let counter = 0
-  let max = 0
-  let l = 0
-  let r = 0
-  const obj: Record<string, number> = {}
+	let counter = 0
+	let max = 0
+	let l = 0
+	let r = 0
+	const obj: Record<string, number> = {}
 
-  while (r < s.length) {
-    const chRight = s[r]
-    obj[chRight] = (obj[chRight] ?? 0) + 1
+	while (r < s.length) {
+		const chRight = s[r]
+		obj[chRight] = (obj[chRight] ?? 0) + 1
 
-    while (obj[chRight] === 2) {
-      const chLeft = s[l]
+		while (obj[chRight] === 2) {
+			const chLeft = s[l]
 
-      obj[chLeft]--
-      counter--
-      l++
-    }
+			obj[chLeft]--
+			counter--
+			l++
+		}
 
-    counter++
-    r++
+		counter++
+		r++
 
-    max = Math.max(max, counter)
-  }
+		max = Math.max(max, counter)
+	}
 
-  return max
+	return max
 }

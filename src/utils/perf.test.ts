@@ -1,14 +1,14 @@
 import { perf } from './perf'
 
 const f = (cnt: number) => () => {
-  const n = 100
-  let c = cnt
-  while (c--) {
-    let x = c
-    for (let i = 0; i < n; i++) {
-      x += i
-    }
-  }
+	const n = 100
+	let c = cnt
+	while (c--) {
+		let x = c
+		for (let i = 0; i < n; i++) {
+			x += i
+		}
+	}
 }
 
 const f_100 = f(1)

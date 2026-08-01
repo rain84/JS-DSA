@@ -5,18 +5,18 @@
  * Topics: Array Bit Manipulation
  */
 export function singleNumber(nums: number[]): number {
-  const sumOfUnique = [...new Set(nums)].reduce((a, b) => a + b, 0)
-  const sum = nums.reduce((a, b) => a + b, 0)
-  return (sumOfUnique * 3 - sum) / 2
+	const sumOfUnique = [...new Set(nums)].reduce((a, b) => a + b, 0)
+	const sum = nums.reduce((a, b) => a + b, 0)
+	return (sumOfUnique * 3 - sum) / 2
 }
 
 export function singleNumber2(nums: number[]): number {
-  let [ans, acc] = [0, 0]
+	let [ans, acc] = [0, 0]
 
-  for (const x of nums) {
-    ans ^= x & ~acc
-    acc ^= x & ~ans
-  }
+	for (const x of nums) {
+		ans ^= x & ~acc
+		acc ^= x & ~ans
+	}
 
-  return ans
+	return ans
 }

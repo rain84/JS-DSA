@@ -4,16 +4,16 @@
  */
 
 const omit = (props, obj) => {
-  if (typeof props === 'string') {
-    const { [props]: _, ...rest } = obj
-    return rest
-  }
+	if (typeof props === 'string') {
+		const { [props]: _, ...rest } = obj
+		return rest
+	}
 
-  if (Array.isArray(props)) {
-    return props.reduce((acc, prop) => omit(prop, acc), obj)
-  }
+	if (Array.isArray(props)) {
+		return props.reduce((acc, prop) => omit(prop, acc), obj)
+	}
 
-  throw new Error()
+	throw new Error()
 }
 
 const prop = 'a'

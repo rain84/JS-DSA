@@ -10,31 +10,31 @@
 	},
 	"formatter": {
 		"indentStyle": "tab",
-    "lineEnding": "lf",
-    "lineWidth": 100
+		"lineEnding": "lf",
+		"lineWidth": 100
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"preset": "recommended",
-      "style": {
-        "noNonNullAssertion": "off",
-        "noParameterAssign": "off",
-        "useTemplate": "off",
-        "useImportType": "off"
-      }
+			"style": {
+				"noNonNullAssertion": "off",
+				"noParameterAssign": "off",
+				"useTemplate": "off",
+				"useImportType": "off"
+			}
 		}
 	},
 	"javascript": {
 		"formatter": {
-		  "jsxQuoteStyle": "double",
-		  "quoteProperties": "asNeeded",
-		  "semicolons": "asNeeded",
-		  "arrowParentheses": "always",
-		  "bracketSpacing": true,
-		  "bracketSameLine": false,
-		  "quoteStyle": "single",
-		  "attributePosition": "auto"
+			"jsxQuoteStyle": "double",
+			"quoteProperties": "asNeeded",
+			"semicolons": "asNeeded",
+			"arrowParentheses": "always",
+			"bracketSpacing": true,
+			"bracketSameLine": false,
+			"quoteStyle": "single",
+			"attributePosition": "auto"
 		}
 	},
 	"assist": {

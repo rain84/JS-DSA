@@ -7,35 +7,34 @@
  *
  */
 export class BIT {
-  #n: number
-  #arr: number[]
+	#n: number
+	#arr: number[]
 
-  constructor(n: number) {
-    this.#n = n
-    this.#arr = Array(n + 1).fill(0)
-  }
+	constructor(n: number) {
+		this.#n = n
+		this.#arr = Array(n + 1).fill(0)
+	}
 
-  query(r: number): number
-  query(r: number, l?: number) {
-    /**  invoke sum(r) */
-    if (l === undefined) {
-      let res = 0
-      while (r > 0) {
-        res += this.#arr[r]
-        r -= r & -r
-      }
-      return res
-    }
+	query(r: number): number
+	query(r: number, l?: number) {
+		/**  invoke sum(r) */
+		if (l === undefined) {
+			let res = 0
+			while (r > 0) {
+				res += this.#arr[r]
+				r -= r & -r
+			}
+			return res
+		}
+		/** invoke sum(r, l) */
+		;[r, l] = [l, r]
+		return this.query(l) - this.query(r - 1)
+	}
 
-    /** invoke sum(r, l) */
-    ;[r, l] = [l, r]
-    return this.query(l) - this.query(r - 1)
-  }
-
-  update(i: number, x: number) {
-    while (i <= this.#n) {
-      this.#arr[i] += x
-      i += i & -i
-    }
-  }
+	update(i: number, x: number) {
+		while (i <= this.#n) {
+			this.#arr[i] += x
+			i += i & -i
+		}
+	}
 }

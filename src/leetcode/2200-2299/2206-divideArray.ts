@@ -4,15 +4,15 @@
  * Topics: Array | Hash Table | Bit Manipulation | Counting
  */
 export function divideArray(nums: number[]): boolean {
-  const cnt = Array(501).fill(0)
+	const cnt = Array(501).fill(0)
 
-  for (const x of nums) {
-    cnt[x]++
-  }
+	for (const x of nums) {
+		cnt[x]++
+	}
 
-  for (const x of cnt) {
-    if (x & 1) return false
-  }
+	for (const x of cnt) {
+		if (x & 1) return false
+	}
 
-  return true
+	return true
 }

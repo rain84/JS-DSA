@@ -16,39 +16,39 @@
  */
 
 export const selectionSort = (arr: number[]) => {
-  for (let i = 0; i < arr.length - 1; i++) {
-    let min = i
+	for (let i = 0; i < arr.length - 1; i++) {
+		let min = i
 
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j] < arr[min]) min = j
-    }
+		for (let j = i + 1; j < arr.length; j++) {
+			if (arr[j] < arr[min]) min = j
+		}
 
-    if (min !== i) {
-      ;[arr[i], arr[min]] = [arr[min], arr[i]]
-    }
-  }
+		if (min !== i) {
+			;[arr[i], arr[min]] = [arr[min], arr[i]]
+		}
+	}
 
-  return arr
+	return arr
 }
 
 export const selectionSortOld = (arr: number[], order = false) => {
-  let i = 0
+	let i = 0
 
-  do {
-    const min = {
-      val: arr[i],
-      index: i,
-    }
-    let j = ++i
+	do {
+		const min = {
+			val: arr[i],
+			index: i,
+		}
+		let j = ++i
 
-    do {
-      if (arr[j] < min.val) {
-        min.val = arr[j]
-        min.index = j
-      }
-    } while (++j < arr.length)
-    ;[arr[i], arr[min.index]] = [arr[min.index], arr[i]]
-  } while (++i < arr.length - 1)
+		do {
+			if (arr[j] < min.val) {
+				min.val = arr[j]
+				min.index = j
+			}
+		} while (++j < arr.length)
+		;[arr[i], arr[min.index]] = [arr[min.index], arr[i]]
+	} while (++i < arr.length - 1)
 
-  return arr
+	return arr
 }

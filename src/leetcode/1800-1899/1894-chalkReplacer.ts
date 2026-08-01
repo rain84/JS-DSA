@@ -4,11 +4,11 @@
  * Topics:Array | Binary Search | Simulation | Prefix Sum
  */
 export function chalkReplacer(chalk: number[], k: number): number {
-  const sum = chalk.reduce((a, b) => a + b, 0)
-  k %= sum
+	const sum = chalk.reduce((a, b) => a + b, 0)
+	k %= sum
 
-  for (let i = 0; ; i++) {
-    if (k < chalk[i]) return i
-    k -= chalk[i]
-  }
+	for (let i = 0; ; i++) {
+		if (k < chalk[i]) return i
+		k -= chalk[i]
+	}
 }

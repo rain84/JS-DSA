@@ -7,19 +7,19 @@
  *
  */
 export function sumSubarrayMins(arr: number[]): number {
-  let sum = 0
+	let sum = 0
 
-  for (let i = 0; i < arr.length; i++) {
-    const stack: number[] = []
-    for (let j = i; j < arr.length; j++) {
-      const x = arr[j]
+	for (let i = 0; i < arr.length; i++) {
+		const stack: number[] = []
+		for (let j = i; j < arr.length; j++) {
+			const x = arr[j]
 
-      while (stack.length && stack.at(-1)! > x) stack.pop()
-      stack.push(x)
+			while (stack.length && stack.at(-1)! > x) stack.pop()
+			stack.push(x)
 
-      sum += stack[0]
-    }
-  }
+			sum += stack[0]
+		}
+	}
 
-  return sum % (1e9 + 7)
+	return sum % (1e9 + 7)
 }

@@ -6,11 +6,11 @@ import type { TreeNode } from '../utils/tree'
  *
  */
 export function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
-  if (!root) return false
+	if (!root) return false
 
-  const diff = targetSum - root.val
+	const diff = targetSum - root.val
 
-  if (diff === 0 && !root.left && !root.right) return true
+	if (diff === 0 && !root.left && !root.right) return true
 
-  return hasPathSum(root.left, diff) || hasPathSum(root.right, diff)
+	return hasPathSum(root.left, diff) || hasPathSum(root.right, diff)
 }

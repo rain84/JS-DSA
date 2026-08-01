@@ -12,18 +12,18 @@
  */
 
 const justGetSquares = (n: number): number[] => {
-  const root = { fractional: 0, integer: 0 }
-  root.fractional = Math.sqrt(n)
-  root.integer = Math.floor(root.fractional)
+	const root = { fractional: 0, integer: 0 }
+	root.fractional = Math.sqrt(n)
+	root.integer = Math.floor(root.fractional)
 
-  const square = root.integer ** 2
-  const haveRoots = root.fractional - root.integer > 0
-  if (haveRoots) {
-    n -= square
-    return [square, ...justGetSquares(n)]
-  }
+	const square = root.integer ** 2
+	const haveRoots = root.fractional - root.integer > 0
+	if (haveRoots) {
+		n -= square
+		return [square, ...justGetSquares(n)]
+	}
 
-  return [square]
+	return [square]
 }
 
 const calcSum = (arr: number[]): number => arr.reduce((acc, val) => acc + val)
@@ -34,56 +34,56 @@ const calcSum = (arr: number[]): number => arr.reduce((acc, val) => acc + val)
 //  should be eqal to "sum"
 //  "size" is used to reduce the number of genetated combinantions
 const getCombinations = ([val, ...values]: number[], sum: number, size = +Infinity): number[][] => {
-  if (val === undefined) return []
+	if (val === undefined) return []
 
-  const results: number[][] = []
-  const result: number[] = []
-  let nextResults: number[][]
-  let resultSum = 0
+	const results: number[][] = []
+	const result: number[] = []
+	let nextResults: number[][]
+	let resultSum = 0
 
-  while (resultSum < sum) {
-    result.push(val)
-    if (result.length === size) return results
+	while (resultSum < sum) {
+		result.push(val)
+		if (result.length === size) return results
 
-    resultSum = calcSum(result)
-    if (resultSum === sum) nextResults = [result]
-    else {
-      const combinations = getCombinations(values, sum - resultSum, size)
-      nextResults = combinations.map((rest) => {
-        if (Array.isArray(rest)) return [...result, ...rest]
-        else return result
-      })
-    }
+		resultSum = calcSum(result)
+		if (resultSum === sum) nextResults = [result]
+		else {
+			const combinations = getCombinations(values, sum - resultSum, size)
+			nextResults = combinations.map((rest) => {
+				if (Array.isArray(rest)) return [...result, ...rest]
+				else return result
+			})
+		}
 
-    nextResults.forEach((result) => {
-      results.push(result)
-      if (result.length < size) size = result.length
-    })
-  }
+		nextResults.forEach((result) => {
+			results.push(result)
+			if (result.length < size) size = result.length
+		})
+	}
 
-  return [...results, ...getCombinations(values, sum, size)]
+	return [...results, ...getCombinations(values, sum, size)]
 }
 
 export const getSquares = (n: number): number[][] => {
-  if (n === 1) return [[1]]
-  if (n === 2) return [[1, 1]]
-  if (n === 3) return [[1, 1, 1]]
+	if (n === 1) return [[1]]
+	if (n === 2) return [[1, 1]]
+	if (n === 3) return [[1, 1, 1]]
 
-  const fractionalRoot = Math.sqrt(n)
-  let root = Math.floor(fractionalRoot)
-  if (root === fractionalRoot) return [[root ** 2]]
+	const fractionalRoot = Math.sqrt(n)
+	let root = Math.floor(fractionalRoot)
+	if (root === fractionalRoot) return [[root ** 2]]
 
-  const size = n - root ** 2 + 1
+	const size = n - root ** 2 + 1
 
-  // populate array of squares
-  const squares = []
+	// populate array of squares
+	const squares = []
 
-  do squares.push(root ** 2)
-  while (--root)
+	do squares.push(root ** 2)
+	while (--root)
 
-  return getCombinations(squares, n, size)
+	return getCombinations(squares, n, size)
 }
 
 export const getN = (n: number): number => {
-  return getSquares(n).reduce((l, { length }) => (length < l ? length : l), +Infinity)
+	return getSquares(n).reduce((l, { length }) => (length < l ? length : l), +Infinity)
 }

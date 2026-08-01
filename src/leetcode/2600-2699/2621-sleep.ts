@@ -3,7 +3,7 @@
  * {@link https://leetcode.com/problems/sleep/ | Link}
  */
 export async function sleep(millis: number): Promise<number> {
-  return new Promise<number>((resolve) => setTimeout(() => resolve(millis), millis))
+	return new Promise<number>((resolve) => setTimeout(() => resolve(millis), millis))
 }
 
 /**

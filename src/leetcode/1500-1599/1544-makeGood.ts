@@ -4,14 +4,14 @@
  *
  */
 export function makeGood(s: string): string {
-  const sx: string[] = []
+	const sx: string[] = []
 
-  for (const ch of s) {
-    const prev = sx.at(-1)
+	for (const ch of s) {
+		const prev = sx.at(-1)
 
-    if (prev && prev !== ch && prev.toLowerCase() === ch.toLowerCase()) sx.pop()
-    else sx.push(ch)
-  }
+		if (prev && prev !== ch && prev.toLowerCase() === ch.toLowerCase()) sx.pop()
+		else sx.push(ch)
+	}
 
-  return sx.join('')
+	return sx.join('')
 }

@@ -7,32 +7,32 @@ import type { TreeNode } from '../utils/tree'
  * Solved using a declarative approach
  */
 export const goodNodes = (root: TreeNode | null): number => {
-  const dfs = (root: TreeNode | null, max = Number.NEGATIVE_INFINITY): number => {
-    if (!root) return 0
+	const dfs = (root: TreeNode | null, max = Number.NEGATIVE_INFINITY): number => {
+		if (!root) return 0
 
-    max = Math.max(max, root.val)
+		max = Math.max(max, root.val)
 
-    return Number(max === root.val) + dfs(root.left, max) + dfs(root.right, max)
-  }
+		return Number(max === root.val) + dfs(root.left, max) + dfs(root.right, max)
+	}
 
-  return dfs(root)
+	return dfs(root)
 }
 
 /** Solved using an iterative approach */
 export const goodNodes2 = (root: TreeNode): number => {
-  const stack: [TreeNode | null, number][] = [[root, Number.NEGATIVE_INFINITY]]
+	const stack: [TreeNode | null, number][] = [[root, Number.NEGATIVE_INFINITY]]
 
-  let res = 0
-  for (let [node, max] of stack) {
-    if (!node) continue
+	let res = 0
+	for (let [node, max] of stack) {
+		if (!node) continue
 
-    if (node.val >= max) {
-      max = node.val
-      res++
-    }
-    stack.push([node.left, max])
-    stack.push([node.right, max])
-  }
+		if (node.val >= max) {
+			max = node.val
+			res++
+		}
+		stack.push([node.left, max])
+		stack.push([node.right, max])
+	}
 
-  return res
+	return res
 }

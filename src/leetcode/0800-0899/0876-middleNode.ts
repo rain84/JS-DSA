@@ -6,13 +6,13 @@ import type { ListNode } from '../utils/tree'
  *
  */
 export function middleNode(head: ListNode | null): ListNode | null {
-  let fast = head
-  let slow = head
+	let fast = head
+	let slow = head
 
-  while (fast?.next) {
-    fast = fast.next?.next ?? null
-    slow = slow?.next ?? null
-  }
+	while (fast?.next) {
+		fast = fast.next?.next ?? null
+		slow = slow?.next ?? null
+	}
 
-  return slow
+	return slow
 }

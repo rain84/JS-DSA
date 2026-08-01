@@ -8,11 +8,11 @@
  * {@link https://florian.github.io/xor-trick/ | xor-trick}
  */
 export const findDouble = (arr: number[]) => {
-  let res = arr.reduce((acc, val) => (acc ^= val))
+	let res = arr.reduce((acc, val) => (acc ^= val))
 
-  for (let i = 1; i < arr.length; i++) {
-    res ^= i
-  }
+	for (let i = 1; i < arr.length; i++) {
+		res ^= i
+	}
 
-  return res
+	return res
 }

@@ -4,14 +4,14 @@
  *
  */
 export function groupAnagrams(strs: string[]): string[][] {
-  const groups: Record<string, string[]> = {}
+	const groups: Record<string, string[]> = {}
 
-  for (const s of strs) {
-    const key = [...s].sort().join('')
+	for (const s of strs) {
+		const key = [...s].sort().join('')
 
-    if (groups[key]) groups[key].push(s)
-    else groups[key] = [s]
-  }
+		if (groups[key]) groups[key].push(s)
+		else groups[key] = [s]
+	}
 
-  return Object.values(groups)
+	return Object.values(groups)
 }

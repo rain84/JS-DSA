@@ -3,14 +3,14 @@ type Res<T extends Input> = T extends string ? string : number
 type Res2 = string | number
 
 const fn = <T extends Input>(data: T): Res2 => {
-  return data
+	return data
 }
 
 type MessaageOf<T> = T extends { message: unknown } ? T['message'] : never
 
 interface Shape {
-  message: 'sms' | 'udp'
-  id: number
+	message: 'sms' | 'udp'
+	id: number
 }
 
 type M = MessaageOf<Shape>

@@ -4,17 +4,17 @@
  * Topics: Array | Hash Table | String | Bit Manipulation | Counting
  */
 export function countConsistentStrings(allowed: string, words: string[]): number {
-  const set = new Set(allowed)
-  let res = words.length
+	const set = new Set(allowed)
+	let res = words.length
 
-  for (const s of words) {
-    for (const ch of new Set(s)) {
-      if (!set.has(ch)) {
-        res--
-        break
-      }
-    }
-  }
+	for (const s of words) {
+		for (const ch of new Set(s)) {
+			if (!set.has(ch)) {
+				res--
+				break
+			}
+		}
+	}
 
-  return res
+	return res
 }

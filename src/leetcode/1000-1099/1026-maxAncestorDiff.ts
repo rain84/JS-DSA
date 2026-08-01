@@ -6,23 +6,23 @@ import type { TreeNode } from '../utils/tree'
  *
  */
 export function maxAncestorDiff(root: TreeNode | null): number {
-  if (!root) return 0
+	if (!root) return 0
 
-  const dfs = (
-    node: TreeNode | null,
-    max = Number.NEGATIVE_INFINITY,
-    min = Number.POSITIVE_INFINITY
-  ): number => {
-    if (!node) return Math.abs(max - min)
+	const dfs = (
+		node: TreeNode | null,
+		max = Number.NEGATIVE_INFINITY,
+		min = Number.POSITIVE_INFINITY,
+	): number => {
+		if (!node) return Math.abs(max - min)
 
-    max = Math.max(node.val, max)
-    min = Math.min(node.val, min)
+		max = Math.max(node.val, max)
+		min = Math.min(node.val, min)
 
-    const left = dfs(node.left, max, min)
-    const right = dfs(node.right, max, min)
+		const left = dfs(node.left, max, min)
+		const right = dfs(node.right, max, min)
 
-    return Math.max(left, right)
-  }
+		return Math.max(left, right)
+	}
 
-  return dfs(root)
+	return dfs(root)
 }

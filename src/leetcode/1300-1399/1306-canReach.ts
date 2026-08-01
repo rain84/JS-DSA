@@ -3,16 +3,16 @@
  * {@link https://leetcode.com/problems/jump-game-iii/ | Link}
  */
 export function canReach(arr: number[], start: number): boolean {
-  const q = [start]
+	const q = [start]
 
-  for (const i of q) {
-    if (arr[i] === 0) return true
-    if (arr[i] === -1 || arr[i] === undefined) continue
+	for (const i of q) {
+		if (arr[i] === 0) return true
+		if (arr[i] === -1 || arr[i] === undefined) continue
 
-    q.push(i - arr[i], i + arr[i])
+		q.push(i - arr[i], i + arr[i])
 
-    arr[i] = -1
-  }
+		arr[i] = -1
+	}
 
-  return false
+	return false
 }

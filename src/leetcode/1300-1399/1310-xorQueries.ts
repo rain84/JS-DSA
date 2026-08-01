@@ -4,10 +4,10 @@
  * Topics: Array | Bit Manipulation | Prefix Sum
  */
 export function xorQueries(arr: number[], queries: number[][]): number[] {
-  const prefixes = [0]
-  for (const x of arr) {
-    prefixes.push(prefixes.at(-1)! ^ x)
-  }
+	const prefixes = [0]
+	for (const x of arr) {
+		prefixes.push(prefixes.at(-1)! ^ x)
+	}
 
-  return queries.map(([left, right]) => prefixes[right + 1] ^ prefixes[left])
+	return queries.map(([left, right]) => prefixes[right + 1] ^ prefixes[left])
 }

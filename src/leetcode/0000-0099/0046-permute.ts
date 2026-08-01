@@ -17,68 +17,68 @@
  */
 
 export function permute(nums: number[]): number[][] {
-  const res: number[][] = []
-  const n = nums.length
+	const res: number[][] = []
+	const n = nums.length
 
-  const dfs = (j: number) => {
-    if (j === n) {
-      res.push([...nums])
-    }
+	const dfs = (j: number) => {
+		if (j === n) {
+			res.push([...nums])
+		}
 
-    for (let i = j; i < n; i++) {
-      ;[nums[i], nums[j]] = [nums[j], nums[i]]
-      dfs(j + 1)
-      ;[nums[i], nums[j]] = [nums[j], nums[i]]
-    }
-  }
+		for (let i = j; i < n; i++) {
+			;[nums[i], nums[j]] = [nums[j], nums[i]]
+			dfs(j + 1)
+			;[nums[i], nums[j]] = [nums[j], nums[i]]
+		}
+	}
 
-  dfs(0)
+	dfs(0)
 
-  return res
+	return res
 }
 
 export function permute2(nums: number[]): number[][] {
-  const res: number[][] = []
-  const path: number[] = []
-  const n = nums.length
+	const res: number[][] = []
+	const path: number[] = []
+	const n = nums.length
 
-  const dfs = (nums: number[]) => {
-    if (path.length === n) {
-      res.push([...path])
-      return
-    }
+	const dfs = (nums: number[]) => {
+		if (path.length === n) {
+			res.push([...path])
+			return
+		}
 
-    for (let i = 0; i < nums.length; i++) {
-      path.push(nums[i])
-      dfs([...nums.slice(0, i), ...nums.slice(i + 1)])
-      path.pop()
-    }
-  }
+		for (let i = 0; i < nums.length; i++) {
+			path.push(nums[i])
+			dfs([...nums.slice(0, i), ...nums.slice(i + 1)])
+			path.pop()
+		}
+	}
 
-  dfs(nums)
+	dfs(nums)
 
-  return res
+	return res
 }
 
 export function permute3(nums: number[]): number[][] {
-  const res: number[][] = []
+	const res: number[][] = []
 
-  const dfs = (curr: number[] = []) => {
-    if (curr.length === nums.length) {
-      res.push([...curr])
-      return
-    }
+	const dfs = (curr: number[] = []) => {
+		if (curr.length === nums.length) {
+			res.push([...curr])
+			return
+		}
 
-    for (const i of nums) {
-      if (curr.includes(i)) continue
+		for (const i of nums) {
+			if (curr.includes(i)) continue
 
-      curr.push(i)
-      dfs(curr)
-      curr.pop()
-    }
-  }
+			curr.push(i)
+			dfs(curr)
+			curr.pop()
+		}
+	}
 
-  dfs()
+	dfs()
 
-  return res
+	return res
 }

@@ -12,19 +12,19 @@
 import { getDigit, getLength } from '../utils/math'
 
 export const radixSort = (arr: number[]) => {
-  const buckets = []
-  let iterations = Math.max(...arr.map(getLength))
-  let position = 1
+	const buckets = []
+	let iterations = Math.max(...arr.map(getLength))
+	let position = 1
 
-  while (iterations--) {
-    for (let i = 0; i < 10; i++) buckets[i] = <number[]>[]
-    for (const num of arr) {
-      buckets[getDigit(num, position)].push(num)
-    }
+	while (iterations--) {
+		for (let i = 0; i < 10; i++) buckets[i] = <number[]>[]
+		for (const num of arr) {
+			buckets[getDigit(num, position)].push(num)
+		}
 
-    arr = buckets.flat()
-    position++
-  }
+		arr = buckets.flat()
+		position++
+	}
 
-  return arr
+	return arr
 }

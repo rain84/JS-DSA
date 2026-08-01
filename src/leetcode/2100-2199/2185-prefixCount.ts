@@ -4,4 +4,4 @@
  * Topics: Array | String | String Matching
  */
 export const prefixCount = (words: string[], pref: string): number =>
-  words.reduce((acc, x) => acc + +x.startsWith(pref), 0)
+	words.reduce((acc, x) => acc + +x.startsWith(pref), 0)

@@ -15,15 +15,15 @@
 */
 
 export const insertionSort = (arr: number[]) => {
-  for (let i = 1; i < arr.length; i++) {
-    const element = arr[i]
+	for (let i = 1; i < arr.length; i++) {
+		const element = arr[i]
 
-    let j = i - 1
-    for (; j >= 0 && arr[j] > element; j--) {
-      arr[j + 1] = arr[j]
-    }
-    arr[j + 1] = element
-  }
+		let j = i - 1
+		for (; j >= 0 && arr[j] > element; j--) {
+			arr[j + 1] = arr[j]
+		}
+		arr[j + 1] = element
+	}
 
-  return arr
+	return arr
 }

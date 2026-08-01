@@ -18,43 +18,43 @@
  */
 
 export function maxProfit(prices: number[]): number {
-  const n = prices.length
-  if (n <= 1) return 0
+	const n = prices.length
+	if (n <= 1) return 0
 
-  let [res, min] = [0, prices[0]]
+	let [res, min] = [0, prices[0]]
 
-  for (const x of prices) {
-    res = Math.max(res, x - min)
-    min = Math.min(min, x)
-  }
+	for (const x of prices) {
+		res = Math.max(res, x - min)
+		min = Math.min(min, x)
+	}
 
-  return res
+	return res
 }
 
 export function maxProfit2(prices: number[]): number {
-  const n = prices.length
-  if (n <= 1) return 0
+	const n = prices.length
+	if (n <= 1) return 0
 
-  let [res, max] = [0, prices.at(-1)!]
+	let [res, max] = [0, prices.at(-1)!]
 
-  for (let i = n - 2; i >= 0; i--) {
-    res = Math.max(res, max - prices[i])
-    max = Math.max(max, prices[i])
-  }
+	for (let i = n - 2; i >= 0; i--) {
+		res = Math.max(res, max - prices[i])
+		max = Math.max(max, prices[i])
+	}
 
-  return res
+	return res
 }
 
 export function maxProfit3(prices: number[]): number {
-  const n = prices.length
-  if (n <= 1) return 0
-  const dp = Array(n - 1).fill(0)
+	const n = prices.length
+	if (n <= 1) return 0
+	const dp = Array(n - 1).fill(0)
 
-  for (let i = 0; i < n - 1; i++) {
-    for (let j = i + 1; j < n; j++) {
-      dp[i] = Math.max(dp[i], prices[j] - prices[i])
-    }
-  }
+	for (let i = 0; i < n - 1; i++) {
+		for (let j = i + 1; j < n; j++) {
+			dp[i] = Math.max(dp[i], prices[j] - prices[i])
+		}
+	}
 
-  return Math.max(...dp)
+	return Math.max(...dp)
 }

@@ -4,13 +4,13 @@
  *
  */
 export const minStartValue = (nums: number[]): number => {
-  let result = 1
-  let sum = 0
+	let result = 1
+	let sum = 0
 
-  for (let i = 0; i < nums.length; i++) {
-    sum += nums[i]
-    result = Math.max(result, 1 - sum)
-  }
+	for (let i = 0; i < nums.length; i++) {
+		sum += nums[i]
+		result = Math.max(result, 1 - sum)
+	}
 
-  return result
+	return result
 }

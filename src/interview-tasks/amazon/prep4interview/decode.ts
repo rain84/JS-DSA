@@ -17,27 +17,27 @@
 // _ _ _ m i m e
 
 export const decode = (str: string, n: number) => {
-  if (!str.length) return ''
+	if (!str.length) return ''
 
-  const result = []
-  const row = Math.floor(str.length / n)
-  let i = 0
-  let j = 0
-  let index: number
+	const result = []
+	const row = Math.floor(str.length / n)
+	let i = 0
+	let j = 0
+	let index: number
 
-  while ((index = i + j * row + j) < str.length) {
-    let ch = str[index]
+	while ((index = i + j * row + j) < str.length) {
+		let ch = str[index]
 
-    if (ch === '_') ch = ' '
-    if (++j === n) {
-      i++
-      j = 0
-    }
+		if (ch === '_') ch = ' '
+		if (++j === n) {
+			i++
+			j = 0
+		}
 
-    result.push(ch)
-  }
+		result.push(ch)
+	}
 
-  return result.join('').trim()
+	return result.join('').trim()
 }
 
 const input = 'mnesi___ya__k____mime'

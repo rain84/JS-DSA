@@ -44,18 +44,18 @@ type Id<T = number> = (x: T) => T
 const identity: Id = (x) => x
 
 const Task = <T extends number>(run: IRun<T>) => ({
-  map: (f: Id<T>) => Task((res, rej) => run((x) => f(res(x)), rej)),
-  run: (res: Cb<T>, rej: Cb<T>) => run(res, rej),
+	map: (f: Id<T>) => Task((res, rej) => run((x) => f(res(x)), rej)),
+	run: (res: Cb<T>, rej: Cb<T>) => run(res, rej),
 })
 
 const run: IRun<number> = (res, rej) => {
-  const data = 42
-  return res(data)
+	const data = 42
+	return res(data)
 }
 
 const log = (info: string) => (val: number) => {
-  console.log(`${info}: ${++val}`)
-  return val
+	console.log(`${info}: ${++val}`)
+	return val
 }
 
 console.clear()

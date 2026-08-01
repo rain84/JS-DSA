@@ -4,12 +4,12 @@
  *
  */
 export function missingNumber(nums: number[]): number {
-  const max = Math.max(...nums)
-  const set = new Set(nums)
+	const max = Math.max(...nums)
+	const set = new Set(nums)
 
-  for (let i = 0; i < max; i++) {
-    if (!set.has(i)) return i
-  }
+	for (let i = 0; i < max; i++) {
+		if (!set.has(i)) return i
+	}
 
-  return max + 1
+	return max + 1
 }

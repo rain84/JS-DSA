@@ -4,18 +4,18 @@
  *
  */
 export class MovingAverage {
-  #queue: number[] = []
-  #sum = 0
+	#queue: number[] = []
+	#sum = 0
 
-  constructor(private size: number) {}
+	constructor(private size: number) {}
 
-  next(val: number): number {
-    if (this.#queue.length === this.size) this.#sum -= this.#queue.shift()!
+	next(val: number): number {
+		if (this.#queue.length === this.size) this.#sum -= this.#queue.shift()!
 
-    this.#queue.push(val)
-    this.#sum += val
-    const average = this.#sum / this.#queue.length
+		this.#queue.push(val)
+		this.#sum += val
+		const average = this.#sum / this.#queue.length
 
-    return +average.toFixed(5)
-  }
+		return +average.toFixed(5)
+	}
 }

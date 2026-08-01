@@ -10,7 +10,7 @@ while (i--) obj[toAlphabetKey(i)] = i
 /** FOR - IN LOOP */
 let start = performance.now()
 for (const key in obj) {
-  data = obj[key]
+	data = obj[key]
 }
 console.log(performance.now() - start)
 
@@ -18,6 +18,6 @@ console.log(performance.now() - start)
 start = performance.now()
 const keys = Object.keys(obj)
 for (const key of keys) {
-  data = obj[key]
+	data = obj[key]
 }
 console.log(performance.now() - start)

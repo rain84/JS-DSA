@@ -4,9 +4,9 @@
  * Topics: Math
  */
 export function coloredCells(n: number): number {
-  return n ** 2 + (n - 1) ** 2
+	return n ** 2 + (n - 1) ** 2
 }
 
 export function coloredCells2(n: number): number {
-  return 2 * n * (n - 1) + 1
+	return 2 * n * (n - 1) + 1
 }

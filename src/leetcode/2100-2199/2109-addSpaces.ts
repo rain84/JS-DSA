@@ -5,16 +5,16 @@
  *
  */
 export function addSpaces(s: string, spaces: number[]): string {
-  const n = s.length + spaces.length
-  const res = Array(n + spaces.length)
+	const n = s.length + spaces.length
+	const res = Array(n + spaces.length)
 
-  for (let i = 0, j = 0; i < n; i++) {
-    if (i === spaces[j]) {
-      res.push(' ')
-      j++
-    }
-    res.push(s[i])
-  }
+	for (let i = 0, j = 0; i < n; i++) {
+		if (i === spaces[j]) {
+			res.push(' ')
+			j++
+		}
+		res.push(s[i])
+	}
 
-  return res.join('')
+	return res.join('')
 }

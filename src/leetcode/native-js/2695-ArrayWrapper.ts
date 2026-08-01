@@ -3,18 +3,18 @@
  * {@link https://leetcode.com/problems/array-wrapper/ | Link}
  */
 export class ArrayWrapper {
-  #xs: number[]
-  constructor(nums: number[]) {
-    this.#xs = nums
-  }
+	#xs: number[]
+	constructor(nums: number[]) {
+		this.#xs = nums
+	}
 
-  valueOf(): number {
-    return this.#xs.reduce((a, b) => a + b, 0)
-  }
+	valueOf(): number {
+		return this.#xs.reduce((a, b) => a + b, 0)
+	}
 
-  toString(): string {
-    return `[${this.#xs}]`
-  }
+	toString(): string {
+		return `[${this.#xs}]`
+	}
 }
 
 /**

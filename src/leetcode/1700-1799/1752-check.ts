@@ -4,13 +4,13 @@
  * Topics: Array
  */
 export function check(nums: number[]): boolean {
-  const n = nums.length
+	const n = nums.length
 
-  for (let i = 0, c = 1; i < n; i++) {
-    if (nums[(i + 1) % n] < nums[i] && --c < 0) {
-      return false
-    }
-  }
+	for (let i = 0, c = 1; i < n; i++) {
+		if (nums[(i + 1) % n] < nums[i] && --c < 0) {
+			return false
+		}
+	}
 
-  return true
+	return true
 }

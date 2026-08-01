@@ -4,25 +4,25 @@
  *
  */
 export function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
-  const res: number[] = []
-  const map: Record<number, number> = {}
-  const stack: number[] = [nums2[0]]
+	const res: number[] = []
+	const map: Record<number, number> = {}
+	const stack: number[] = [nums2[0]]
 
-  for (let i = 1; i < nums2.length; i++) {
-    const nextGE = nums2[i]
+	for (let i = 1; i < nums2.length; i++) {
+		const nextGE = nums2[i]
 
-    while (nextGE > stack.at(-1)!) {
-      const x = stack.pop()!
-      map[x] = nextGE
-    }
-    stack.push(nextGE)
-  }
+		while (nextGE > stack.at(-1)!) {
+			const x = stack.pop()!
+			map[x] = nextGE
+		}
+		stack.push(nextGE)
+	}
 
-  while (stack.length) {
-    map[stack.pop()!] = -1
-  }
+	while (stack.length) {
+		map[stack.pop()!] = -1
+	}
 
-  for (const i of nums1) res.push(map[i])
+	for (const i of nums1) res.push(map[i])
 
-  return res
+	return res
 }

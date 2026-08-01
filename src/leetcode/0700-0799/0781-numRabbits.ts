@@ -4,17 +4,17 @@
  * Topics: Array | Hash Table | Math | Greedy
  */
 export function numRabbits(answers: number[]): number {
-  const cnt: Record<number, number> = {}
-  let res = 0
+	const cnt: Record<number, number> = {}
+	let res = 0
 
-  for (const x of answers) {
-    if (cnt[x]) {
-      cnt[x]--
-    } else {
-      cnt[x] = x
-      res += x + 1
-    }
-  }
+	for (const x of answers) {
+		if (cnt[x]) {
+			cnt[x]--
+		} else {
+			cnt[x] = x
+			res += x + 1
+		}
+	}
 
-  return res
+	return res
 }

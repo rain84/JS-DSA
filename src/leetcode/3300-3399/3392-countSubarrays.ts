@@ -4,14 +4,14 @@
  * Topics: Array
  */
 export function countSubarrays(nums: number[]): number {
-  const n = nums.length
-  let [res] = [0, 0]
+	const n = nums.length
+	let [res] = [0, 0]
 
-  for (let i = 2; i < n; i++) {
-    if ((nums[i] + nums[i - 2]) * 2 === nums[i - 1]) {
-      res++
-    }
-  }
+	for (let i = 2; i < n; i++) {
+		if ((nums[i] + nums[i - 2]) * 2 === nums[i - 1]) {
+			res++
+		}
+	}
 
-  return res
+	return res
 }

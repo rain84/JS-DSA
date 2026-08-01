@@ -8,5 +8,5 @@ fs.writeFileSync('output.txt', result.toString())
  * {@param {string[]} args - list of strokes}
  */
 function solution(args) {
-  return args
+	return args
 }

@@ -19,55 +19,55 @@ import { MaxPriorityQueue, MinPriorityQueue } from '@datastructures-js/priority-
  */
 
 export function maxDistance(arrays: number[][]): number {
-  const n = arrays.length
-  let res = 0
-  let [min, max] = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]
+	const n = arrays.length
+	let res = 0
+	let [min, max] = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]
 
-  for (let i = 0; i < n; i++) {
-    const a = arrays[i]
-    res = Math.max(Math.max(a.at(-1)! - min, max - a[0]), res)
-    min = Math.min(min, a[0])
-    max = Math.max(max, a.at(-1)!)
-  }
+	for (let i = 0; i < n; i++) {
+		const a = arrays[i]
+		res = Math.max(Math.max(a.at(-1)! - min, max - a[0]), res)
+		min = Math.min(min, a[0])
+		max = Math.max(max, a.at(-1)!)
+	}
 
-  return res
+	return res
 }
 
 /** One-Liner */
 export const maxDistance2 = (arrays: number[][]): number =>
-  arrays.reduce(
-    ([res, min, max], a) => [
-      Math.max(Math.max(a.at(-1)! - min, max - a[0]), res),
-      Math.min(min, a[0]),
-      Math.max(max, a.at(-1)!),
-    ],
-    [0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]
-  )[0]
+	arrays.reduce(
+		([res, min, max], a) => [
+			Math.max(Math.max(a.at(-1)! - min, max - a[0]), res),
+			Math.min(min, a[0]),
+			Math.max(max, a.at(-1)!),
+		],
+		[0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY],
+	)[0]
 
 /**  Solved with PriorityQueue */
 export function maxDistance3(arrays: number[][]): number {
-  const minPQ = new MinPriorityQueue<[number, number]>({ priority: ([x]) => x })
-  const maxPQ = new MaxPriorityQueue<[number, number]>({ priority: ([x]) => x })
+	const minPQ = new MinPriorityQueue<[number, number]>({ priority: ([x]) => x })
+	const maxPQ = new MaxPriorityQueue<[number, number]>({ priority: ([x]) => x })
 
-  for (let i = 0; i < arrays.length; i++) {
-    minPQ.enqueue([arrays[i][0], i])
-    maxPQ.enqueue([arrays[i].at(-1)!, i])
-  }
+	for (let i = 0; i < arrays.length; i++) {
+		minPQ.enqueue([arrays[i][0], i])
+		maxPQ.enqueue([arrays[i].at(-1)!, i])
+	}
 
-  let res = Number.NEGATIVE_INFINITY
-  const maxes = maxPQ.toArray()
+	let res = Number.NEGATIVE_INFINITY
+	const maxes = maxPQ.toArray()
 
-  while (!minPQ.isEmpty()) {
-    const [min, a1] = minPQ.dequeue().element
+	while (!minPQ.isEmpty()) {
+		const [min, a1] = minPQ.dequeue().element
 
-    for (const {
-      element: [max, a2],
-    } of maxes) {
-      if (a1 === a2) continue
-      res = Math.max(res, max - min)
-      break
-    }
-  }
+		for (const {
+			element: [max, a2],
+		} of maxes) {
+			if (a1 === a2) continue
+			res = Math.max(res, max - min)
+			break
+		}
+	}
 
-  return res
+	return res
 }

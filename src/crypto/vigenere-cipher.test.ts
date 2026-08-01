@@ -6,13 +6,13 @@ const encodedMessage = 'хыгвжчхйэцэхёьыюжрфыжмэбжкфг
 
 // Poly-alphabet "Vigenere"-cipher
 it('should encode', () => {
-  expect(encode(alphabet)(message, keyword)).toBe(encodedMessage)
+	expect(encode(alphabet)(message, keyword)).toBe(encodedMessage)
 })
 
 it('should decode', () => {
-  expect(decode(alphabet)(encodedMessage, keyword)).toBe(message)
+	expect(decode(alphabet)(encodedMessage, keyword)).toBe(message)
 })
 
 it('should just work', () => {
-  expect(decode(alphabet)(encode(alphabet)(message, keyword), keyword)).toBe(message)
+	expect(decode(alphabet)(encode(alphabet)(message, keyword), keyword)).toBe(message)
 })

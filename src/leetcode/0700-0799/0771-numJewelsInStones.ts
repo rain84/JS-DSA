@@ -4,28 +4,28 @@
  *
  */
 export function numJewelsInStones(jewels: string, stones: string): number {
-  let res = 0
-  const set = new Set<string>(jewels)
+	let res = 0
+	const set = new Set<string>(jewels)
 
-  for (const s of stones) {
-    if (set.has(s)) res++
-  }
+	for (const s of stones) {
+		if (set.has(s)) res++
+	}
 
-  return res
+	return res
 }
 
 /** Solution with HashMap */
 export function numJewelsInStones2(jewels: string, stones: string): number {
-  let res = 0
-  const map = new Map<string, number>()
+	let res = 0
+	const map = new Map<string, number>()
 
-  for (const s of stones) {
-    map.set(s, (map.get(s) ?? 0) + 1)
-  }
+	for (const s of stones) {
+		map.set(s, (map.get(s) ?? 0) + 1)
+	}
 
-  for (const j of jewels) {
-    res += map.get(j) ?? 0
-  }
+	for (const j of jewels) {
+		res += map.get(j) ?? 0
+	}
 
-  return res
+	return res
 }

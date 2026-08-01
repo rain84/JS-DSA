@@ -4,26 +4,26 @@
  *
  */
 export class StockSpanner {
-  #stack: Stock[] = []
-  #index = 0
+	#stack: Stock[] = []
+	#index = 0
 
-  next(price: number): number {
-    this.#index++
-    let prev = this.#stack.at(-1)
+	next(price: number): number {
+		this.#index++
+		let prev = this.#stack.at(-1)
 
-    while ((prev?.price ?? Number.POSITIVE_INFINITY) <= price) {
-      this.#stack.pop()
-      prev = this.#stack.at(-1)
-    }
+		while ((prev?.price ?? Number.POSITIVE_INFINITY) <= price) {
+			this.#stack.pop()
+			prev = this.#stack.at(-1)
+		}
 
-    const res = this.#index - (prev?.index ?? 0)
-    this.#stack.push({ index: this.#index, price })
+		const res = this.#index - (prev?.index ?? 0)
+		this.#stack.push({ index: this.#index, price })
 
-    return res
-  }
+		return res
+	}
 }
 
 type Stock = {
-  index: number
-  price: number
+	index: number
+	price: number
 }

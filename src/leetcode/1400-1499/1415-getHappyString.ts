@@ -4,21 +4,21 @@
  * Topics: String | Backtracking
  */
 export function getHappyString(n: number, k: number): string {
-  let res = ''
+	let res = ''
 
-  const dfs = (s = '') => {
-    if (res || s.length === n) {
-      if (--k === 0) res = s
-      return
-    }
+	const dfs = (s = '') => {
+		if (res || s.length === n) {
+			if (--k === 0) res = s
+			return
+		}
 
-    for (const ch of 'abc') {
-      if (s.at(-1) === ch) continue
-      dfs(s + ch)
-    }
-  }
+		for (const ch of 'abc') {
+			if (s.at(-1) === ch) continue
+			dfs(s + ch)
+		}
+	}
 
-  dfs()
+	dfs()
 
-  return res
+	return res
 }

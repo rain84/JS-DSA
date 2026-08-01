@@ -4,16 +4,16 @@
  * Topics: Array | Hash Table | Counting
  */
 export function canArrange(arr: number[], k: number): boolean {
-  const cnt = Array(k).fill(0)
+	const cnt = Array(k).fill(0)
 
-  for (const x of arr) {
-    const mod = ((x % k) + k) % k
-    cnt[mod]++
-  }
+	for (const x of arr) {
+		const mod = ((x % k) + k) % k
+		cnt[mod]++
+	}
 
-  for (let i = 1; i < k; i++) {
-    if (cnt[i] !== cnt[k - i]) return false
-  }
+	for (let i = 1; i < k; i++) {
+		if (cnt[i] !== cnt[k - i]) return false
+	}
 
-  return cnt[0] % 2 === 0
+	return cnt[0] % 2 === 0
 }

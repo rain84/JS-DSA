@@ -12,32 +12,32 @@
     Remark          : Easiest to implement	
 */
 export const bubbleSort = (arr: number[]) => {
-  for (let j = arr.length - 1, isSorted = true; j > 0; j--, isSorted = true) {
-    for (let i = 0; i < j; i++) {
-      if (arr[i] > arr[i + 1]) {
-        ;[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
-        isSorted = false
-      }
-    }
-    if (isSorted) break
-  }
-  return arr
+	for (let j = arr.length - 1, isSorted = true; j > 0; j--, isSorted = true) {
+		for (let i = 0; i < j; i++) {
+			if (arr[i] > arr[i + 1]) {
+				;[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+				isSorted = false
+			}
+		}
+		if (isSorted) break
+	}
+	return arr
 }
 
 export const bubbleSort2 = (arr: number[], order = false) => {
-  let i = arr.length
+	let i = arr.length
 
-  while (--i) {
-    let j = -1
+	while (--i) {
+		let j = -1
 
-    while (++j < i) {
-      const shouldSwap = (order && arr[j] < arr[j + 1]) || (!order && arr[j] > arr[j + 1])
+		while (++j < i) {
+			const shouldSwap = (order && arr[j] < arr[j + 1]) || (!order && arr[j] > arr[j + 1])
 
-      if (shouldSwap) {
-        ;[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
-      }
-    }
-  }
+			if (shouldSwap) {
+				;[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+			}
+		}
+	}
 
-  return arr
+	return arr
 }

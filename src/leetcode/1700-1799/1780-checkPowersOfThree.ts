@@ -4,22 +4,22 @@
  * Topics: Math
  */
 export function checkPowersOfThree(n: number): boolean {
-  const set = new Set<number>()
-  let [c, x] = [0, n]
+	const set = new Set<number>()
+	let [c, x] = [0, n]
 
-  while (n > 1) {
-    x /= 3
-    if (x < 1) return false
-    c++
+	while (n > 1) {
+		x /= 3
+		if (x < 1) return false
+		c++
 
-    if ((x | 0) === 1) {
-      if (set.has(c)) return false
-      set.add(c)
-      n -= 3 ** c
-      x = n
-      c = 0
-    }
-  }
+		if ((x | 0) === 1) {
+			if (set.has(c)) return false
+			set.add(c)
+			n -= 3 ** c
+			x = n
+			c = 0
+		}
+	}
 
-  return true
+	return true
 }

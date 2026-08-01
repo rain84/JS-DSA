@@ -16,10 +16,10 @@
 
 // Time complexity O(n*LogN)
 export const getItems = (arr: number[], k: number) => {
-  if (!arr.length || arr.length < k) return
+	if (!arr.length || arr.length < k) return
 
-  arr.sort((a, b) => (a < b ? -1 : 1))
-  const result: number[] = arr.slice(arr.length - k)
+	arr.sort((a, b) => (a < b ? -1 : 1))
+	const result: number[] = arr.slice(arr.length - k)
 
-  return result
+	return result
 }

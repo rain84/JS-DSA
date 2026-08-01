@@ -4,15 +4,15 @@
  * TopicsЖ String | Prefix Sum
  */
 export function maxScore(s: string): number {
-  const n = s.length
-  let [l, r] = [0, [...s].reduce((a, b) => a + +b, 0)]
-  let res = 0
+	const n = s.length
+	let [l, r] = [0, [...s].reduce((a, b) => a + +b, 0)]
+	let res = 0
 
-  for (let i = 0; i < n - 1; i++) {
-    if (+s[i]) r--
-    else l++
-    res = Math.max(res, l + r)
-  }
+	for (let i = 0; i < n - 1; i++) {
+		if (+s[i]) r--
+		else l++
+		res = Math.max(res, l + r)
+	}
 
-  return res
+	return res
 }

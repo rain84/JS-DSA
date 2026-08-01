@@ -4,16 +4,16 @@
  * Topics: String | Stack | Simulation
  */
 export function removeOccurrences(s: string, part: string): string {
-  const i = part.length
-  let res = ''
+	const i = part.length
+	let res = ''
 
-  for (const x of s) {
-    res += x
+	for (const x of s) {
+		res += x
 
-    if (res.endsWith(part)) {
-      res = res.slice(0, res.length - i)
-    }
-  }
+		if (res.endsWith(part)) {
+			res = res.slice(0, res.length - i)
+		}
+	}
 
-  return res
+	return res
 }

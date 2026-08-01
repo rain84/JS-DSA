@@ -7,23 +7,23 @@
 import { TreeNode } from '../utils/tree'
 
 export class FindElements {
-  readonly #vals = new Set<number>()
+	readonly #vals = new Set<number>()
 
-  constructor(root: TreeNode) {
-    root.val = 0
+	constructor(root: TreeNode) {
+		root.val = 0
 
-    const dfs = (node: TreeNode | null, x = 0) => {
-      if (!node) return
+		const dfs = (node: TreeNode | null, x = 0) => {
+			if (!node) return
 
-      this.#vals.add(x)
-      dfs(node.left, x * 2 + 1)
-      dfs(node.right, x * 2 + 2)
-    }
+			this.#vals.add(x)
+			dfs(node.left, x * 2 + 1)
+			dfs(node.right, x * 2 + 2)
+		}
 
-    dfs(root)
-  }
+		dfs(root)
+	}
 
-  find(target: number): boolean {
-    return this.#vals.has(target)
-  }
+	find(target: number): boolean {
+		return this.#vals.has(target)
+	}
 }

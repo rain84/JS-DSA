@@ -3,5 +3,5 @@
  * {@link https://leetcode.com/problems/number-of-senior-citizens/ | Link}
  */
 export function countSeniors(details: string[]): number {
-  return details.filter((x) => +x.slice(11, 13) > 60).length
+	return details.filter((x) => +x.slice(11, 13) > 60).length
 }

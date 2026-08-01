@@ -1,11 +1,11 @@
 type HasNames = { names: readonly string[] }
 
 function getNamesExactlyOld<T extends HasNames>(arg: T): T['names'] {
-  return arg.names
+	return arg.names
 }
 
 function getNamesExactlyNew<const T extends HasNames>(arg: T): T['names'] {
-  return arg.names
+	return arg.names
 }
 
 //    string[]

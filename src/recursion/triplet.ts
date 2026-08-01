@@ -8,45 +8,45 @@
 // Else return false.
 
 export const run = (input: number[], sum: number, size: number) => {
-  if (input.length < size) return false
+	if (input.length < size) return false
 
-  const pointer = {
-    left: 0,
-    right: input.length - 1,
-  }
-  const value = {
-    left: Number.NEGATIVE_INFINITY,
-    right: Number.POSITIVE_INFINITY,
-  }
+	const pointer = {
+		left: 0,
+		right: input.length - 1,
+	}
+	const value = {
+		left: Number.NEGATIVE_INFINITY,
+		right: Number.POSITIVE_INFINITY,
+	}
 
-  const result: number[][] = []
+	const result: number[][] = []
 
-  do {
-    value.left = input[pointer.left]
-    value.right = input[pointer.right]
-    const currentSum = value.left + value.right
+	do {
+		value.left = input[pointer.left]
+		value.right = input[pointer.right]
+		const currentSum = value.left + value.right
 
-    if (currentSum === sum) {
-      result.push([value.left, value.right])
-      pointer.left++
-      pointer.right--
-    } else if (currentSum < sum) pointer.left++
-    else pointer.right--
-  } while (pointer.left < pointer.right)
+		if (currentSum === sum) {
+			result.push([value.left, value.right])
+			pointer.left++
+			pointer.right--
+		} else if (currentSum < sum) pointer.left++
+		else pointer.right--
+	} while (pointer.left < pointer.right)
 
-  return result
+	return result
 }
 
 export const getSubarraysEqualsToSum = (arr: number[], sum: number, size: number) => {
-  const input = [...new Set(arr)]
-  input.sort((a, b) => a - b)
-  const result: number[][] = []
+	const input = [...new Set(arr)]
+	input.sort((a, b) => a - b)
+	const result: number[][] = []
 
-  if (size < 2) return false
+	if (size < 2) return false
 
-  return result
+	return result
 }
 
 export const getTriplet = (arr: number[], sum: number) => {
-  return getSubarraysEqualsToSum(arr, sum, 3)
+	return getSubarraysEqualsToSum(arr, sum, 3)
 }

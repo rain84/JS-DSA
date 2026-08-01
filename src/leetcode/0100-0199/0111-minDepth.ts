@@ -6,10 +6,10 @@ import type { TreeNode } from '../utils/tree'
  *
  */
 export function minDepth(root: TreeNode | null): number {
-  if (!root) return 0
+	if (!root) return 0
 
-  const l = minDepth(root.left)
-  const r = minDepth(root.right)
+	const l = minDepth(root.left)
+	const r = minDepth(root.right)
 
-  return 1 + (l && r ? Math.min(l, r) : l || r)
+	return 1 + (l && r ? Math.min(l, r) : l || r)
 }

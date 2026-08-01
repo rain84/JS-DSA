@@ -8,22 +8,22 @@
  * {@link https://florian.github.io/xor-trick/ | xor-trick}
  */
 export const findMissingN = (arr: number[]) => {
-  for (let i = 1; i <= arr.length; i++) {
-    if (i ^ arr[i - 1]) return i
-  }
+	for (let i = 1; i <= arr.length; i++) {
+		if (i ^ arr[i - 1]) return i
+	}
 
-  return -1
+	return -1
 }
 
 export const findMissingN2 = (arr: number[]) => {
-  let res = arr[0]
-  let i = 1
+	let res = arr[0]
+	let i = 1
 
-  while (i++ < arr.at(-1)!) res ^= i
+	while (i++ < arr.at(-1)!) res ^= i
 
-  for (let i = 0; i < arr.length; i++) {
-    res ^= arr[i]
-  }
+	for (let i = 0; i < arr.length; i++) {
+		res ^= arr[i]
+	}
 
-  return res
+	return res
 }

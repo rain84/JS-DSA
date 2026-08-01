@@ -4,14 +4,14 @@
  * Topics: Two Pointers | String | String Matching
  */
 export function isPrefixOfWord(sentence: string, searchWord: string): number {
-  const arr = sentence.split(' ')
-  const n = arr.length
+	const arr = sentence.split(' ')
+	const n = arr.length
 
-  for (let i = 0; i < n; i++) {
-    if (arr[i].startsWith(searchWord)) {
-      return i + 1
-    }
-  }
+	for (let i = 0; i < n; i++) {
+		if (arr[i].startsWith(searchWord)) {
+			return i + 1
+		}
+	}
 
-  return -1
+	return -1
 }

@@ -1,20 +1,20 @@
 // TODO: add test coverage
 
 export const resizeArray = (arr, size) => {
-  const { length } = arr
-  const result = []
+	const { length } = arr
+	const result = []
 
-  if (size <= length) return arr.slice(0, size)
+	if (size <= length) return arr.slice(0, size)
 
-  let i = ~~(size / length)
-  do {
-    result.push.apply(result, arr)
-  } while (--i)
+	let i = ~~(size / length)
+	do {
+		result.push.apply(result, arr)
+	} while (--i)
 
-  i = size % length
-  if (i) result.push.apply(result, arr.slice(0, i))
+	i = size % length
+	if (i) result.push.apply(result, arr.slice(0, i))
 
-  return result
+	return result
 }
 
 const arr = [...'qwe']

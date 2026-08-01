@@ -4,17 +4,17 @@
  * Topics: Array | Bit Manipulation | Brainteaser
  */
 export function longestSubarray(nums: number[]): number {
-  const max = Math.max(...nums)
-  let [res, c] = [0, 0]
+	const max = Math.max(...nums)
+	let [res, c] = [0, 0]
 
-  for (const x of nums) {
-    if (x === max) {
-      c++
-      res = Math.max(res, c)
-    } else {
-      c = 0
-    }
-  }
+	for (const x of nums) {
+		if (x === max) {
+			c++
+			res = Math.max(res, c)
+		} else {
+			c = 0
+		}
+	}
 
-  return res
+	return res
 }

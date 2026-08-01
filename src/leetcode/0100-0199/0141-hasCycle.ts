@@ -6,17 +6,17 @@ import type { ListNode } from '../utils/tree'
  *
  */
 export function hasCycle(head: ListNode | null): boolean {
-  if (!head) return false
+	if (!head) return false
 
-  let fast: ListNode | null = head
-  let slow: ListNode | null = head
+	let fast: ListNode | null = head
+	let slow: ListNode | null = head
 
-  while (fast) {
-    fast = fast.next?.next ?? null
-    slow = slow?.next ?? null
+	while (fast) {
+		fast = fast.next?.next ?? null
+		slow = slow?.next ?? null
 
-    if (fast && fast === slow) return true
-  }
+		if (fast && fast === slow) return true
+	}
 
-  return false
+	return false
 }

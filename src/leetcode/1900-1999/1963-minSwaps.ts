@@ -4,12 +4,12 @@
  * Topics: Two Pointers | String | Stack | Greedy
  */
 export function minSwaps(s: string): number {
-  let x = 0
+	let x = 0
 
-  for (const ch of s) {
-    if (ch === '[') x++
-    else if (x) x--
-  }
+	for (const ch of s) {
+		if (ch === '[') x++
+		else if (x) x--
+	}
 
-  return (x + 1) >> 1
+	return (x + 1) >> 1
 }

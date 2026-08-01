@@ -3,30 +3,30 @@
  * {@link https://leetcode.com/problems/chunk-array/ | Link}
  */
 export function chunk(arr: number[], size: number): number[][] {
-  const res: number[][] = []
+	const res: number[][] = []
 
-  for (let i = 0; i < arr.length; i += size) {
-    res.push(arr.slice(i, i + size))
-  }
+	for (let i = 0; i < arr.length; i += size) {
+		res.push(arr.slice(i, i + size))
+	}
 
-  return res
+	return res
 }
 
 /** My 1st solution */
 function chunk2(arr: number[], size: number): number[][] {
-  const res: number[][] = []
-  let tmp: number[] = []
+	const res: number[][] = []
+	let tmp: number[] = []
 
-  for (let i = 0; i < arr.length; i++) {
-    tmp.push(arr[i])
+	for (let i = 0; i < arr.length; i++) {
+		tmp.push(arr[i])
 
-    if ((i + 1) % size === 0) {
-      res.push(tmp)
-      tmp = []
-    }
-  }
+		if ((i + 1) % size === 0) {
+			res.push(tmp)
+			tmp = []
+		}
+	}
 
-  if (tmp.length) res.push(tmp)
+	if (tmp.length) res.push(tmp)
 
-  return res
+	return res
 }

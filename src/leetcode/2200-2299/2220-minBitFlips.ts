@@ -4,5 +4,5 @@
  * Topics: Bit Manipulation
  */
 export function minBitFlips(start: number, goal: number): number {
-  return (start ^ goal).toString(2).replaceAll('0', '').length
+	return (start ^ goal).toString(2).replaceAll('0', '').length
 }

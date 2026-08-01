@@ -6,28 +6,28 @@ import { MaxPriorityQueue } from '@datastructures-js/priority-queue'
  * Topics: Array | Greedy | Heap (Priority Queue)
  */
 export function maxKelements(nums: number[], k: number): number {
-  const heap = MaxPriorityQueue.from(nums.map((x) => [x, x]))
-  let res = 0
+	const heap = MaxPriorityQueue.from(nums.map((x) => [x, x]))
+	let res = 0
 
-  while (k--) {
-    const x = heap.dequeue().element
-    res += x
-    heap.enqueue(Math.ceil(x / 3))
-  }
+	while (k--) {
+		const x = heap.dequeue().element
+		res += x
+		heap.enqueue(Math.ceil(x / 3))
+	}
 
-  return res
+	return res
 }
 
 /** One-Liner */
 export const maxKelements2 = (
-  nums: number[],
-  k: number,
-  res = 0,
-  heap = MaxPriorityQueue.from(nums.map((x) => [x, x]))
+	nums: number[],
+	k: number,
+	res = 0,
+	heap = MaxPriorityQueue.from(nums.map((x) => [x, x])),
 ): number => (
-  Array.from<number>(
-    { length: k },
-    (x) => ((x = heap.dequeue().element), (res += x), heap.enqueue(Math.ceil(x / 3)))
-  ),
-  res
+	Array.from<number>(
+		{ length: k },
+		(x) => ((x = heap.dequeue().element), (res += x), heap.enqueue(Math.ceil(x / 3))),
+	),
+	res
 )

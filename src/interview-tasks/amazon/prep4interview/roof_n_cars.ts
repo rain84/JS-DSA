@@ -19,23 +19,23 @@
 // Output: 5
 
 export const getMinRoof = (arr: number[], n: number) => {
-  if (arr.length < n) return 0
+	if (arr.length < n) return 0
 
-  const slice = arr.slice(0, n - 1)
-  let i = n - 1
-  let result = Number.POSITIVE_INFINITY
-  let slicePointer = i
+	const slice = arr.slice(0, n - 1)
+	let i = n - 1
+	let result = Number.POSITIVE_INFINITY
+	let slicePointer = i
 
-  do {
-    slice[slicePointer++] = arr[i]
+	do {
+		slice[slicePointer++] = arr[i]
 
-    const min = Math.min(...slice)
-    const max = Math.max(...slice)
-    const diff = max - min + 1
+		const min = Math.min(...slice)
+		const max = Math.max(...slice)
+		const diff = max - min + 1
 
-    if (slicePointer === n) slicePointer = 0
-    if (diff < result) result = diff
-  } while (++i < arr.length)
+		if (slicePointer === n) slicePointer = 0
+		if (diff < result) result = diff
+	} while (++i < arr.length)
 
-  return result
+	return result
 }

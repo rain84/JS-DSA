@@ -1,28 +1,28 @@
 const validateBrackets = (str) => {
-  const s = ''
+	const s = ''
 
-  const bracketPairs = ['()', '[]', '{}'].reduce(
-    (acc, [left, right]) => {
-      acc.left[left] = right
-      acc.right[right] = left
-      return acc
-    },
-    { left: {}, right: {} }
-  )
+	const bracketPairs = ['()', '[]', '{}'].reduce(
+		(acc, [left, right]) => {
+			acc.left[left] = right
+			acc.right[right] = left
+			return acc
+		},
+		{ left: {}, right: {} },
+	)
 
-  const stack = []
+	const stack = []
 
-  for (const ch of str) {
-    if (ch in bracketPairs.left) {
-      stack.push(ch)
-    } else if (ch in bracketPairs.right) {
-      if (stack.pop() !== bracketPairs.right[ch]) return false
-    }
-  }
+	for (const ch of str) {
+		if (ch in bracketPairs.left) {
+			stack.push(ch)
+		} else if (ch in bracketPairs.right) {
+			if (stack.pop() !== bracketPairs.right[ch]) return false
+		}
+	}
 
-  const res = !stack.length
+	const res = !stack.length
 
-  return res
+	return res
 }
 
 const str = `const getSumZeroPair = (arr) => {

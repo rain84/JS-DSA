@@ -3,50 +3,50 @@
  * should return maximum possible product from the consecutive characters of the array
  */
 const maxProduct = (nums) => {
-  const getCountOfNegatives = (arr) => arr.filter((el) => el < 0).length
-  const multiply = (arr) => (arr.length ? arr.reduce((acc, val) => acc * val) : -Number.Infinity)
+	const getCountOfNegatives = (arr) => arr.filter((el) => el < 0).length
+	const multiply = (arr) => (arr.length ? arr.reduce((acc, val) => acc * val) : -Number.Infinity)
 
-  const groups = nums
-    .reduce(
-      (acc, val) => {
-        const lastContainer = acc[acc.length - 1]
+	const groups = nums
+		.reduce(
+			(acc, val) => {
+				const lastContainer = acc[acc.length - 1]
 
-        if (val) {
-          lastContainer.push(val)
-        } else if (lastContainer.length) acc.push([])
+				if (val) {
+					lastContainer.push(val)
+				} else if (lastContainer.length) acc.push([])
 
-        return acc
-      },
-      [[]]
-    )
+				return acc
+			},
+			[[]],
+		)
 
-    .flatMap((group) => {
-      const isEven = getCountOfNegatives(group) % 2 === 0
+		.flatMap((group) => {
+			const isEven = getCountOfNegatives(group) % 2 === 0
 
-      if (isEven) return [group]
+			if (isEven) return [group]
 
-      const maxNegative = group.reduce(
-        (acc, val, key) => {
-          if (val < 0 && val > acc.val && key % 2 === 0) {
-            acc.val = val
-            acc.key = key
-          }
-          return acc
-        },
-        { val: -Number.Infinity, key: -1 }
-      )
+			const maxNegative = group.reduce(
+				(acc, val, key) => {
+					if (val < 0 && val > acc.val && key % 2 === 0) {
+						acc.val = val
+						acc.key = key
+					}
+					return acc
+				},
+				{ val: -Number.Infinity, key: -1 },
+			)
 
-      console.log('maxNegative', maxNegative)
+			console.log('maxNegative', maxNegative)
 
-      const groupPairsWithoutMaxNegative = [
-        group.slice(0, maxNegative.key),
-        group.slice(maxNegative.key + 1),
-      ]
-      return groupPairsWithoutMaxNegative
-    })
-    .map(multiply)
+			const groupPairsWithoutMaxNegative = [
+				group.slice(0, maxNegative.key),
+				group.slice(maxNegative.key + 1),
+			]
+			return groupPairsWithoutMaxNegative
+		})
+		.map(multiply)
 
-  return Math.max(...groups)
+	return Math.max(...groups)
 }
 
 console.log(maxProduct([4, 0, 6, 9]))

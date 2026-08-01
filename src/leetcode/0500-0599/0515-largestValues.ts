@@ -7,27 +7,27 @@ import type { TreeNode } from '../utils/tree'
  *
  */
 export function largestValues(root: TreeNode | null): number[] {
-  if (!root) return []
+	if (!root) return []
 
-  const res: number[] = []
-  let queue = [root]
+	const res: number[] = []
+	let queue = [root]
 
-  while (queue.length) {
-    const nextQueue: TreeNode[] = []
-    let max = queue[0]!.val
+	while (queue.length) {
+		const nextQueue: TreeNode[] = []
+		let max = queue[0]!.val
 
-    for (const node of queue) {
-      isDefined(node)
+		for (const node of queue) {
+			isDefined(node)
 
-      if (node.left) nextQueue.push(node.left)
-      if (node.right) nextQueue.push(node.right)
+			if (node.left) nextQueue.push(node.left)
+			if (node.right) nextQueue.push(node.right)
 
-      max = Math.max(max, node.val)
-    }
+			max = Math.max(max, node.val)
+		}
 
-    res.push(max)
-    queue = nextQueue
-  }
+		res.push(max)
+		queue = nextQueue
+	}
 
-  return res
+	return res
 }

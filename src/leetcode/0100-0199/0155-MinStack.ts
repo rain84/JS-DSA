@@ -4,24 +4,24 @@
  *
  */
 export class MinStack {
-  #stack: number[] = []
-  #minStack: number[] = [Number.POSITIVE_INFINITY]
+	#stack: number[] = []
+	#minStack: number[] = [Number.POSITIVE_INFINITY]
 
-  push(val: number): void {
-    this.#stack.push(val)
-    this.#minStack.push(Math.min(val, this.#minStack.at(-1)!))
-  }
+	push(val: number): void {
+		this.#stack.push(val)
+		this.#minStack.push(Math.min(val, this.#minStack.at(-1)!))
+	}
 
-  pop(): void {
-    this.#stack.pop()
-    this.#minStack.pop()
-  }
+	pop(): void {
+		this.#stack.pop()
+		this.#minStack.pop()
+	}
 
-  top(): number | undefined {
-    return this.#stack.at(-1)
-  }
+	top(): number | undefined {
+		return this.#stack.at(-1)
+	}
 
-  getMin(): number | undefined {
-    return this.#minStack.at(-1)
-  }
+	getMin(): number | undefined {
+		return this.#minStack.at(-1)
+	}
 }

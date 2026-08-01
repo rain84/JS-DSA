@@ -6,31 +6,31 @@ import type { ListNode } from '../utils/tree'
  *
  */
 export function reverseList(head: ListNode | null): ListNode | null {
-  let node = head
-  let prev: ListNode | null = null
+	let node = head
+	let prev: ListNode | null = null
 
-  while (node) {
-    const next = node.next
-    node.next = prev
-    prev = node
-    node = next
-  }
+	while (node) {
+		const next = node.next
+		node.next = prev
+		prev = node
+		node = next
+	}
 
-  return prev
+	return prev
 }
 
 export function recursivelyReverseList(
-  head: ListNode | null,
-  prev: ListNode | null = null
+	head: ListNode | null,
+	prev: ListNode | null = null,
 ): ListNode | null {
-  if (!head) return null
-  if (!head?.next) {
-    head.next = prev
-    return head
-  }
+	if (!head) return null
+	if (!head?.next) {
+		head.next = prev
+		return head
+	}
 
-  const tail = head!.next
-  head!.next = prev
+	const tail = head!.next
+	head!.next = prev
 
-  return recursivelyReverseList(tail, head)
+	return recursivelyReverseList(tail, head)
 }

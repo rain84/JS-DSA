@@ -3,33 +3,33 @@
  * {@link https://leetcode.com/problems/event-emitter/ | Link}
  */
 export class EventEmitter {
-  #handlers = new Map<string, Callback[]>()
+	#handlers = new Map<string, Callback[]>()
 
-  subscribe(eventName: string, cb: Callback): Subscription {
-    const cbs = this.#handlers.get(eventName) ?? []
-    cbs.push(cb)
-    this.#handlers.set(eventName, cbs)
+	subscribe(eventName: string, cb: Callback): Subscription {
+		const cbs = this.#handlers.get(eventName) ?? []
+		cbs.push(cb)
+		this.#handlers.set(eventName, cbs)
 
-    return {
-      unsubscribe: () => {
-        if (!this.#handlers.has(eventName)) return
+		return {
+			unsubscribe: () => {
+				if (!this.#handlers.has(eventName)) return
 
-        const cbs = this.#handlers.get(eventName)?.filter((x) => x !== cb) ?? []
+				const cbs = this.#handlers.get(eventName)?.filter((x) => x !== cb) ?? []
 
-        if (cbs.length) this.#handlers.set(eventName, cbs)
-        else this.#handlers.delete(eventName)
-      },
-    }
-  }
+				if (cbs.length) this.#handlers.set(eventName, cbs)
+				else this.#handlers.delete(eventName)
+			},
+		}
+	}
 
-  emit(eventName: string, args: unknown[] = []): unknown[] {
-    return this.#handlers.get(eventName)?.map((cb) => cb(...args)) ?? []
-  }
+	emit(eventName: string, args: unknown[] = []): unknown[] {
+		return this.#handlers.get(eventName)?.map((cb) => cb(...args)) ?? []
+	}
 }
 
 type Callback = (...args: unknown[]) => unknown
 type Subscription = {
-  unsubscribe: () => void
+	unsubscribe: () => void
 }
 
 /**

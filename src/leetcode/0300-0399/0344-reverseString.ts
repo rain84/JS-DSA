@@ -6,12 +6,12 @@
  *
  */
 export const reverseString = (s: string[]): void => {
-  let l = 0
-  let r = s.length - 1
+	let l = 0
+	let r = s.length - 1
 
-  while (l < r) {
-    ;[s[l], s[r]] = [s[r], s[l]]
-    l++
-    r--
-  }
+	while (l < r) {
+		;[s[l], s[r]] = [s[r], s[l]]
+		l++
+		r--
+	}
 }

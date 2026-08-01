@@ -4,20 +4,20 @@
  * Topics: Array | Math | Design | Data Stream | Prefix Sum§
  */
 export class ProductOfNumbers {
-  #prefixSum = [1]
+	#prefixSum = [1]
 
-  add(num: number): void {
-    if (num === 0) {
-      this.#prefixSum = [1]
-    } else {
-      const i = this.#prefixSum.length
-      this.#prefixSum[i] = this.#prefixSum[i - 1] * num
-    }
-  }
+	add(num: number): void {
+		if (num === 0) {
+			this.#prefixSum = [1]
+		} else {
+			const i = this.#prefixSum.length
+			this.#prefixSum[i] = this.#prefixSum[i - 1] * num
+		}
+	}
 
-  getProduct(k: number): number {
-    const i = this.#prefixSum.length
-    if (k > i - 1) return 0
-    return this.#prefixSum[i - 1] / this.#prefixSum[i - k - 1]
-  }
+	getProduct(k: number): number {
+		const i = this.#prefixSum.length
+		if (k > i - 1) return 0
+		return this.#prefixSum[i - 1] / this.#prefixSum[i - k - 1]
+	}
 }

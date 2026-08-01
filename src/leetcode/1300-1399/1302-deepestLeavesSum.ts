@@ -6,24 +6,24 @@ import type { TreeNode } from '../utils/tree'
  *
  */
 export function deepestLeavesSum(root: TreeNode | null): number {
-  if (!root) return 0
+	if (!root) return 0
 
-  let queue = [root]
-  let xs: number[] = []
+	let queue = [root]
+	let xs: number[] = []
 
-  while (queue.length) {
-    const nextQueue: TreeNode[] = []
-    xs = []
+	while (queue.length) {
+		const nextQueue: TreeNode[] = []
+		xs = []
 
-    for (const { val, left, right } of queue) {
-      xs.push(val)
+		for (const { val, left, right } of queue) {
+			xs.push(val)
 
-      if (left) nextQueue.push(left)
-      if (right) nextQueue.push(right)
-    }
+			if (left) nextQueue.push(left)
+			if (right) nextQueue.push(right)
+		}
 
-    queue = nextQueue
-  }
+		queue = nextQueue
+	}
 
-  return xs.reduce((a, b) => a + b)
+	return xs.reduce((a, b) => a + b)
 }

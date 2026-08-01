@@ -1,8 +1,8 @@
 import { perf } from 'utils/perf'
 
 const isDigit1 = (ch: string) => {
-  const code = ch.charCodeAt(0)
-  return isDigit1.zero <= code && code < isDigit1.zero + 10
+	const code = ch.charCodeAt(0)
+	return isDigit1.zero <= code && code < isDigit1.zero + 10
 }
 isDigit1.zero = '0'.charCodeAt(0)
 
@@ -12,8 +12,8 @@ isDigit2.regex = /\d/
 const isDigit3 = (ch: string) => !Number.isNaN(Number.parseInt(ch))
 
 const isUpperLetter1 = (ch: string) => {
-  const code = ch.charCodeAt(0)
-  return isUpperLetter1.A <= code && code < isUpperLetter1.A + 26
+	const code = ch.charCodeAt(0)
+	return isUpperLetter1.A <= code && code < isUpperLetter1.A + 26
 }
 isUpperLetter1.A = 'A'.charCodeAt(0)
 

@@ -4,5 +4,5 @@
  * Topics: Array | Math
  */
 export function findNumbers(nums: number[]): number {
-  return nums.filter((x) => String(x).length % 2 === 0).length
+	return nums.filter((x) => String(x).length % 2 === 0).length
 }

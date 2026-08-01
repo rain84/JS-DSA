@@ -6,18 +6,18 @@ import { perf } from 'utils/perf'
  * Topics: Array | Bit Manipulation | Sliding Window
  */
 export function longestNiceSubarray(nums: number[]): number {
-  let [res, l, r, bitmask] = [0, 0, 0, 0]
+	let [res, l, r, bitmask] = [0, 0, 0, 0]
 
-  while (r < nums.length) {
-    const haveBit = nums[r] & bitmask
+	while (r < nums.length) {
+		const haveBit = nums[r] & bitmask
 
-    if (haveBit) {
-      bitmask ^= nums[l++]
-    } else {
-      bitmask |= nums[r++]
-      res = Math.max(res, r - l)
-    }
-  }
+		if (haveBit) {
+			bitmask ^= nums[l++]
+		} else {
+			bitmask |= nums[r++]
+			res = Math.max(res, r - l)
+		}
+	}
 
-  return res
+	return res
 }

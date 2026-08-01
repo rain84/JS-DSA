@@ -4,21 +4,21 @@
  * Topics: String | Simulation
  */
 export function getLucky(s: string, k: number): number {
-  const codeA = 'a'.charCodeAt(0) - 1
-  const n = s.length
-  let nums = ''
+	const codeA = 'a'.charCodeAt(0) - 1
+	const n = s.length
+	let nums = ''
 
-  for (let i = 0; i < n; i++) {
-    nums += s.charCodeAt(i) - codeA
-  }
+	for (let i = 0; i < n; i++) {
+		nums += s.charCodeAt(i) - codeA
+	}
 
-  while (k--) {
-    let t = 0
-    for (const x of nums) {
-      t += +x
-    }
-    nums = String(t)
-  }
+	while (k--) {
+		let t = 0
+		for (const x of nums) {
+			t += +x
+		}
+		nums = String(t)
+	}
 
-  return +nums
+	return +nums
 }

@@ -6,32 +6,32 @@ import type { TreeNode } from '../utils/tree'
  *
  */
 export function zigzagLevelOrder(root: TreeNode | null): number[][] {
-  if (!root) return []
+	if (!root) return []
 
-  const res: number[][] = []
-  let queue = [root]
-  let order = false
+	const res: number[][] = []
+	let queue = [root]
+	let order = false
 
-  while (queue.length) {
-    const nextQueue: TreeNode[] = []
-    const row: number[] = []
+	while (queue.length) {
+		const nextQueue: TreeNode[] = []
+		const row: number[] = []
 
-    for (const { left, right, val } of queue) {
-      row.push(val)
+		for (const { left, right, val } of queue) {
+			row.push(val)
 
-      if (order) {
-        if (left) nextQueue.push(left)
-        if (right) nextQueue.push(right)
-      } else {
-        if (right) nextQueue.push(right)
-        if (left) nextQueue.push(left)
-      }
-    }
+			if (order) {
+				if (left) nextQueue.push(left)
+				if (right) nextQueue.push(right)
+			} else {
+				if (right) nextQueue.push(right)
+				if (left) nextQueue.push(left)
+			}
+		}
 
-    res.push(row)
-    order = !order
-    queue = nextQueue
-  }
+		res.push(row)
+		order = !order
+		queue = nextQueue
+	}
 
-  return res
+	return res
 }

@@ -19,81 +19,84 @@ and each node can have any amount of children.
 */
 
 interface INode {
-  name: string
-  weight: number
-  children?: INode[]
+	name: string
+	weight: number
+	children?: INode[]
 }
 
 interface ITraversable {
-  get maxpathForRoot(): number
-  get maxpath(): number
+	get maxpathForRoot(): number
+	get maxpath(): number
 }
 
 interface ITree extends INode, ITraversable {
-  add(...nodes: ITree[]): ITree
+	add(...nodes: ITree[]): ITree
 }
 
 export class CNode implements ITree {
-  children?: INode[]
-  private _maxpathForRoot = 0
+	children?: INode[]
+	private _maxpathForRoot = 0
 
-  constructor(public name = 'node', public weight = 0) {}
+	constructor(
+		public name = 'node',
+		public weight = 0,
+	) {}
 
-  add(...nodes: ITree[]): ITree {
-    if (!this.children) this.children = []
-    this.children.push(...nodes)
+	add(...nodes: ITree[]): ITree {
+		if (!this.children) this.children = []
+		this.children.push(...nodes)
 
-    return this
-  }
+		return this
+	}
 
-  get maxpathForRoot() {
-    if (!this._maxpathForRoot) {
-      this._maxpathForRoot = this.weight
+	get maxpathForRoot() {
+		if (!this._maxpathForRoot) {
+			this._maxpathForRoot = this.weight
 
-      if (this?.children?.length) {
-        this._maxpathForRoot += this.maxPathForChildren()
-      }
-    }
+			if (this?.children?.length) {
+				this._maxpathForRoot += this.maxPathForChildren()
+			}
+		}
 
-    return this._maxpathForRoot
-  }
+		return this._maxpathForRoot
+	}
 
-  get maxpath() {
-    const maxpathsOfChildren = this?.children
-      ?.map((node) => (node as ITree).maxpath)
-      .sort((a, b) => b - a)
-    const previousMax = maxpathsOfChildren?.[1] ?? 0
+	get maxpath() {
+		const maxpathsOfChildren = this?.children
+			?.map((node) => (node as ITree).maxpath)
+			.sort((a, b) => b - a)
+		const previousMax = maxpathsOfChildren?.[1] ?? 0
 
-    return this.maxpathForRoot + previousMax
-  }
+		return this.maxpathForRoot + previousMax
+	}
 
-  private maxPathForChildren(): number {
-    if (!this.children || !this.children.length) return 0
+	private maxPathForChildren(): number {
+		if (!this.children || !this.children.length) return 0
 
-    const max = this.children?.map((node) => (node as ITree).maxpathForRoot)
-    return Math.max(...max)
-  }
+		const max = this.children?.map((node) => (node as ITree).maxpathForRoot)
+		return Math.max(...max)
+	}
 }
 
 // prettier-ignore
 const tree = new CNode('a').add(
-  new CNode('b', 3),
-  new CNode('c', 5),
-  new CNode('d', 8).add(
-    new CNode('e', 2).add(new CNode('g', 1), new CNode('h', 1)),
-    new CNode('f', 4)
-  )
+	new CNode('b', 3),
+	new CNode('c', 5),
+	new CNode('d', 8).add(
+		new CNode('e', 2).add(new CNode('g', 1), new CNode('h', 1)),
+		new CNode('f', 4),
+	),
 )
 
 // biome-ignore lint:
 function stringify(data: any) {
-  return JSON.stringify(data, null, ' ')
+	return JSON.stringify(data, null, ' ')
 }
 
 // biome-ignore lint:
 function log(data: any, msg?: string): void {
-  const isObject = typeof data === 'object' && !Object.is(data, null)
-  console.log(msg, isObject ? stringify(data) : data)
+	const isObject = typeof data === 'object' && !Object.is(data, null)
+	console.log(msg, isObject ? stringify(data) : data)
 }
 
 log(tree)

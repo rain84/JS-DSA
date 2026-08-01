@@ -7,13 +7,13 @@ import { TreeNode } from '../utils/tree'
  * Topics: Linked List | Tree | Depth-First Search | Binary Tree
  */
 export function isSubPath(head: ListNode | null, root: TreeNode | null): boolean {
-  if (!root) return false
+	if (!root) return false
 
-  const dfs = (head: ListNode | null, node: TreeNode | null): boolean => {
-    if (!head) return true
-    if (!node || head.val !== node.val) return false
-    return dfs(head.next!, node.left) || dfs(head.next!, node.right)
-  }
+	const dfs = (head: ListNode | null, node: TreeNode | null): boolean => {
+		if (!head) return true
+		if (!node || head.val !== node.val) return false
+		return dfs(head.next!, node.left) || dfs(head.next!, node.right)
+	}
 
-  return dfs(head, root) || isSubPath(head, root?.left!) || isSubPath(head, root?.right!)
+	return dfs(head, root) || isSubPath(head, root?.left!) || isSubPath(head, root?.right!)
 }

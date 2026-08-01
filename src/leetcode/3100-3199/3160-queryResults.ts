@@ -4,24 +4,24 @@
  * Topics: Array | Hash Table | Simulation
  */
 export function queryResults(limit: number, queries: number[][]): number[] {
-  const balls = new Map<number, number>()
-  const cnt = new Map<number, number>()
-  const res: number[] = []
+	const balls = new Map<number, number>()
+	const cnt = new Map<number, number>()
+	const res: number[] = []
 
-  for (const [i, color] of queries) {
-    const currColor = balls.get(i) ?? 0
+	for (const [i, color] of queries) {
+		const currColor = balls.get(i) ?? 0
 
-    if (currColor !== color) {
-      const c = cnt.get(currColor) ?? 0
-      if (c > 1) cnt.set(currColor, c - 1)
-      else cnt.delete(currColor)
+		if (currColor !== color) {
+			const c = cnt.get(currColor) ?? 0
+			if (c > 1) cnt.set(currColor, c - 1)
+			else cnt.delete(currColor)
 
-      cnt.set(color, (cnt.get(color) ?? 0) + 1)
-    }
+			cnt.set(color, (cnt.get(color) ?? 0) + 1)
+		}
 
-    balls.set(i, color)
-    res.push(cnt.size)
-  }
+		balls.set(i, color)
+		res.push(cnt.size)
+	}
 
-  return res
+	return res
 }
