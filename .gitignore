@@ -1,8 +1,6 @@
 node_modules
 .vscode
-src/temp.js
-src/tmp.js
+.zed/*
 out
-
 coverage
 .DS_Store
