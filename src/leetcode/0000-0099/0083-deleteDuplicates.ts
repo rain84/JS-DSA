@@ -1,4 +1,4 @@
-import type { ListNode } from '../utils/tree'
+import { ListNode } from '../utils/linked-list'
 
 /**
  * 83. Remove Duplicates from Sorted List

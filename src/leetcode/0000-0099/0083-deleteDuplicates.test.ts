@@ -1,16 +1,23 @@
-import { create } from '../utils/linked-list'
+import { create, toArray } from '../utils/linked-list'
 import { deleteDuplicates } from './0083-deleteDuplicates'
 
-it('should work 1', () => {
-	const input = create([1, 1, 2])
-	const output = create([1, 2])
-
-	expect(deleteDuplicates(input)).toMatchObject(output)
+it.each(
+	// prettier-ignore
+	[
+		[[1, 1, 2], [1, 2]],
+		[[1, 1, 2, 3, 3], [1, 2, 3]],
+		[[1, 1, 1], [1]],
+		[[1, 2, 3], [1, 2, 3]],
+		[[1], [1]],
+		[[1, 1], [1]],
+		[[1, 2, 2, 3, 3, 3], [1, 2, 3]],
+	],
+)('deleteDuplicates(%p) = %p', (input, expected) => {
+	const head = create(input)
+	const result = deleteDuplicates(head)
+	expect(toArray(result)).toEqual(expected)
 })
 
-it('should work 2', () => {
-	const input = create([1, 1, 2, 3, 3])
-	const output = create([1, 2, 3])
-
-	expect(deleteDuplicates(input)).toMatchObject(output)
+it('deleteDuplicates(null) = null', () => {
+	expect(deleteDuplicates(null)).toBeNull()
 })
