@@ -17,8 +17,9 @@ export function removeElement(nums: number[], val: number): number {
 	return i
 }
 
-export function _removeElement(nums: number[], val: number): number {
-	let [l, r] = [0, nums.length - 1]
+export function removeElement2(nums: number[], val: number): number {
+	let l = 0
+	let r = nums.length - 1
 
 	while (l <= r) {
 		if (nums[l] === val) {
