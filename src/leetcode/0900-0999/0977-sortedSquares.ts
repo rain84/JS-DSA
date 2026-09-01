@@ -1,25 +1,27 @@
 /**
  * 977. Squares of a Sorted Array
- * {@link https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/703/arraystrings/4689/ | Link}
+ * {@link https://leetcode.com/problems/squares-of-a-sorted-array/ | Link}
  *
+ * Topics: Array | Two Pointers | Sorting
+ *
+ * Given an integer array nums sorted in non-decreasing order,
+ * return an array of the squares of each number sorted in non-decreasing order.
  */
-export const sortedSquares = (numbers: number[]): number[] => {
+export const sortedSquares = (nums: number[]): number[] => {
+	const n = nums.length
+	const res = Array(n).fill(0)
 	let l = 0
-	let r = numbers.length - 1
-	let i = numbers.length
+	let r = n - 1
 
-	const res: number[] = new Array(numbers.length)
+	for (let i = n - 1; i >= 0; i--) {
+		const lSquare = nums[l] ** 2
+		const rSquare = nums[r] ** 2
 
-	while (l <= r) {
-		const lValue = numbers[l] ** 2
-		const rValue = numbers[r] ** 2
-
-		i--
-		if (lValue > rValue) {
-			res[i] = lValue
+		if (lSquare > rSquare) {
+			res[i] = lSquare
 			l++
 		} else {
-			res[i] = rValue
+			res[i] = rSquare
 			r--
 		}
 	}
