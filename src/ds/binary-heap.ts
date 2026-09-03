@@ -1,31 +1,33 @@
-type TComparator = (parent: number, child: number) => boolean
-// biome-ignore lint:
-export type Selector = (value: any) => number
-type Element<T> = {
+type Comparator = (parent: number, child: number) => boolean
+
+export type Selector<Value = unknown> = (value: Value) => number
+
+type Element<Value> = {
 	index: number
 	key: number
-	value: T
+	value: Value
 }
 
-export interface IBinaryHeap<T> extends BinaryHeap<T> {}
+export class BinaryHeap<Value = number> {
+	static createMin = <Item = number>(selector?: Selector<Item>) =>
+		new BinaryHeap<Item>(BinaryHeap.#comparators.min, selector)
 
-export class BinaryHeap<T = number> {
-	static createMin = <T = number>(selector?: Selector) =>
-		new BinaryHeap<T>(BinaryHeap.#comparators.min, selector)
-
-	static createMax = <T = number>(selector?: Selector) =>
-		new BinaryHeap<T>(BinaryHeap.#comparators.max, selector)
+	static createMax = <Item = number>(selector?: Selector<Item>) =>
+		new BinaryHeap<Item>(BinaryHeap.#comparators.max, selector)
 
 	static #comparators = {
 		max: (parent: number, child = Number.NEGATIVE_INFINITY) => child <= parent,
 		min: (parent: number, child = Number.POSITIVE_INFINITY) => child >= parent,
 	}
 
-	#h: T[] = []
-	#comparator: TComparator
-	#selector: Selector
+	#h: Value[] = []
+	#comparator: Comparator
+	#selector: Selector<Value>
 
-	private constructor(comparator: TComparator, selector: Selector = (key: number) => key) {
+	private constructor(
+		comparator: Comparator,
+		selector: Selector<Value> = (value) => value as unknown as number,
+	) {
 		this.#comparator = comparator
 		this.#selector = selector
 	}
@@ -34,7 +36,7 @@ export class BinaryHeap<T = number> {
 		return this.#h.length
 	}
 
-	push(val: T) {
+	push(val: Value) {
 		this.#h.push(val)
 		let index = this.#h.length - 1
 
@@ -78,14 +80,14 @@ export class BinaryHeap<T = number> {
 		return this.#h[0]
 	}
 
-	fill(values?: T[]) {
+	fill(values?: Value[]) {
 		if (values === undefined) return this
 		for (const v of values) this.push(v)
 		return this
 	}
 
 	*[Symbol.iterator]() {
-		const values: T[] = [...this.#h]
+		const values: Value[] = [...this.#h]
 		while (this.size) yield this.pop()!
 		this.#h = values
 	}
@@ -94,7 +96,7 @@ export class BinaryHeap<T = number> {
 		return 0 <= index && index < this.#h.length
 	}
 
-	#getElement(index: number): MaybeUndefined<Element<T>> {
+	#getElement(index: number): MaybeUndefined<Element<Value>> {
 		if (!this.#inBounds(index)) return
 
 		const value = this.#h[index]
