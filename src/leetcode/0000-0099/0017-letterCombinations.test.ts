@@ -1,5 +1,5 @@
-import { letterCombinations } from './0017-letterCombinations'
 import { sort } from '../utils/sort'
+import { letterCombinations } from './0017-letterCombinations'
 
 it.each(
 	//  prettier-ignore

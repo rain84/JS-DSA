@@ -1,5 +1,5 @@
-import { permute, permute2, permute3 } from './0046-permute'
 import { sort } from '../utils/sort'
+import { permute, permute2, permute3 } from './0046-permute'
 
 it.each(
 	//  prettier-ignore

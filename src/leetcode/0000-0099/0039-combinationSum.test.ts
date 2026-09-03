@@ -1,5 +1,5 @@
-import { combinationSum } from './0039-combinationSum'
 import { sort } from '../utils/sort'
+import { combinationSum } from './0039-combinationSum'
 
 it.each(
 	//  prettier-ignore
