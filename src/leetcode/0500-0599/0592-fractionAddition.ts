@@ -3,7 +3,7 @@
  */
 export function fractionAddition(expression: string): string {
 	const fractions = expression
-		.match(/([\+|\-]?\d+\/\d+)/g)!
+		.match(/([+-]?\d+\/\d+)/g)!
 		.map((x) => x.split('/').map((x) => Number.parseInt(x)))
 
 	const denominators = [...new Set(fractions.map(([_, x]) => x))]
