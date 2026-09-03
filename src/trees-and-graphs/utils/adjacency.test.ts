@@ -1,4 +1,4 @@
-import { type Edges, adjacency } from './adjacency'
+import { adjacency, type Edges } from './adjacency'
 
 it.each(
 	//  prettier-ignore

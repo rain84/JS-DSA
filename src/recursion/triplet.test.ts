@@ -1,4 +1,4 @@
-import { run, getTriplet } from './triplet'
+import { getTriplet, run } from './triplet'
 
 // get subarrays with sum
 it('should work', () => {

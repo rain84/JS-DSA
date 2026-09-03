@@ -4,7 +4,7 @@
  * Topics: String | Stack | Recursion
  */
 export function parseBoolExpr(expression: string): boolean {
-	const regex = /^([\&\|\!])\((.*)\)$/
+	const regex = /^([&|!])\((.*)\)$/
 
 	const dfs = (s: string, op = ''): boolean => {
 		if (s === 't') return true

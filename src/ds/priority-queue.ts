@@ -48,7 +48,7 @@ export class PriorityQueue<T> {
 	}
 
 	private swap(indexOne: number, indexTwo: number): void {
-		let temp = this.data[indexOne]
+		const temp = this.data[indexOne]
 		this.data[indexOne] = this.data[indexTwo]
 		this.data[indexTwo] = temp
 	}

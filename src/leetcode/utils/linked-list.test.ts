@@ -1,4 +1,4 @@
-import { ListNode, create, toArray } from './linked-list'
+import { create, ListNode, toArray } from './linked-list'
 
 it('ListNode should work', () => {
 	const node = new ListNode(1, new ListNode(2))

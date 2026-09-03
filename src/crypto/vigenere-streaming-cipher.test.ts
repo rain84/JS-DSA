@@ -1,4 +1,4 @@
-import { encode, decode, alphabet } from './vigenere-streaming-cipher'
+import { alphabet, decode, encode } from './vigenere-streaming-cipher'
 
 // Poly-alphabet "Vigenere"-streaming-cipher
 //   const autokey = 'QUEENLY'

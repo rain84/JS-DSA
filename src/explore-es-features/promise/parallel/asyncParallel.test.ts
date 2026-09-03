@@ -1,5 +1,5 @@
-import { asyncParallel } from './asyncParallel'
 import { resolve } from '../promise'
+import { asyncParallel } from './asyncParallel'
 
 const fakedFetch = (timeout: number) => resolve(timeout, timeout * 100)
 

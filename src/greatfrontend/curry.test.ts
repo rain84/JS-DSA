@@ -10,7 +10,12 @@ it('curries with correct arity', () => {
 })
 
 it('preserves this', () => {
-	const obj: any = { x: 10, fn(a: number, b: number) { return this.x + a + b } }
+	const obj: any = {
+		x: 10,
+		fn(a: number, b: number) {
+			return this.x + a + b
+		},
+	}
 	obj.curried = curry(obj.fn)
 	expect(obj.curried(5)(3)).toBe(18)
 })

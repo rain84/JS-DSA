@@ -1,11 +1,11 @@
 import {
-	findPairs1,
-	findPairs2,
 	findPair3,
 	findPair4,
 	findPair5,
 	findPair6,
 	findPairIndexes,
+	findPairs1,
+	findPairs2,
 	haveSum,
 } from './task'
 

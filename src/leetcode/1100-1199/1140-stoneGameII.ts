@@ -7,7 +7,7 @@ export function stoneGameII(piles: number[]): number {
 	const n = piles.length
 	const dp = Array(n + 1).fill(0)
 	const prefixSum = Array(n + 1).fill(0)
-	let res = 0
+	const res = 0
 
 	for (let i = 1; i <= n; i++) {
 		prefixSum[i] = prefixSum[i - 1] + piles[i - 1]

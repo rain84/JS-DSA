@@ -1,4 +1,4 @@
-import { ListNode, create } from '../utils/linked-list'
+import { create, ListNode } from '../utils/linked-list'
 import { hasCycle } from './0141-hasCycle'
 
 it('should work 1', () => {

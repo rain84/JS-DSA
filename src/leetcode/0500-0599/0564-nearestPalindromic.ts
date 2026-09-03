@@ -15,7 +15,7 @@ export function nearestPalindromic(n: string): string {
 
 	res.push(+mirror(half, isOdd))
 
-	let next = String(+half + 1)
+	const next = String(+half + 1)
 	if (isOdd) {
 		res.push(+mirror(next.slice(0, next.length - 1)))
 	} else {

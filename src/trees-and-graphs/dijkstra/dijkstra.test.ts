@@ -1,4 +1,4 @@
-import { type Edges, dijkstra, dijkstra2, dijkstra3, getPath } from './dijkstra'
+import { dijkstra, dijkstra2, dijkstra3, type Edges, getPath } from './dijkstra'
 
 it.each([dijkstra, dijkstra2, dijkstra3])('dijkstra should work 1-%#', (f) => {
 	const edges: Edges = [

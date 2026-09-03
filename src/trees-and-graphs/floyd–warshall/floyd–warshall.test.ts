@@ -1,4 +1,4 @@
-import { Edges, adjacency } from 'trees-and-graphs/utils/adjacency'
+import { adjacency, Edges } from 'trees-and-graphs/utils/adjacency'
 import { floyd_warshall } from './floyd–warshall'
 
 it('should work 1', () => {

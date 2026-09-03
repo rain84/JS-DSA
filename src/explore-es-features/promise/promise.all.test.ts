@@ -1,4 +1,4 @@
-import { Promise_, resolve, reject } from './promise'
+import { Promise_, reject, resolve } from './promise'
 
 type TPromises = Record<string, Array<unknown | Promise<unknown>>>
 

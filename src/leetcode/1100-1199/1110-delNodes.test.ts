@@ -1,4 +1,4 @@
-import { type TreeNode, createTree, getTreeValues } from '../utils/tree'
+import { createTree, getTreeValues, type TreeNode } from '../utils/tree'
 import { delNodes, delNodes2 } from './1110-delNodes'
 
 it.each(

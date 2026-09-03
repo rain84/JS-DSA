@@ -1,4 +1,4 @@
-import { thirdLargest, kLargest } from './kLargest'
+import { kLargest, thirdLargest } from './kLargest'
 
 it('thirdLargest should work', () => {
 	expect(thirdLargest([2, 4, 1, 3, 5], 5)).toBe(3)

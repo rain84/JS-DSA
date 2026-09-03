@@ -1,5 +1,5 @@
-import { Graph } from './graph'
 import type { Cb } from './graph'
+import { Graph } from './graph'
 
 let graph: Graph
 let path: string[]

@@ -7,29 +7,28 @@ export function compactObject(obj: Obj): Obj {
 		const res: Array<JSONValue> = []
 
 		for (const x of obj) {
-      if (!x) continue
+			if (!x) continue
 			res.push(isObj(x) ? compactObject(x) : x)
-    }
+		}
 
-    return res
-  }
-  else {
-    const res: Record<string, JSONValue> = {}
+		return res
+	} else {
+		const res: Record<string, JSONValue> = {}
 
-    for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        const val = obj[key]
-        if (!val) continue
-  			res[key] = isObj(val) ? compactObject(val) : val
-     	}
-    }
+		for (const key in obj) {
+			if (Object.hasOwn(obj, key)) {
+				const val = obj[key]
+				if (!val) continue
+				res[key] = isObj(val) ? compactObject(val) : val
+			}
+		}
 
-    return res
-  }
+		return res
+	}
 }
 
 function isObj(x: unknown): x is Obj {
-  return x !== null && typeof x === 'object'
+	return x !== null && typeof x === 'object'
 }
 
 type JSONValue = null | boolean | number | string | JSONValue[] | { [key: string]: JSONValue }

@@ -1,7 +1,6 @@
 import { deepClone } from './deepClone'
 
 describe('deepClone — GreatFrontEnd / Deep Clone', () => {
-
 	describe('примитивы и null', () => {
 		it.each([
 			[null, null],

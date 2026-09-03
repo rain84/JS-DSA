@@ -1,7 +1,7 @@
 import {
-	Node,
-	intersectPoint,
 	createFromString,
+	intersectPoint,
+	Node,
 } from './intersection-point-in-y-shaped-linked-lists'
 
 describe('GFG. Intersection Point in Y Shaped Linked Lists', () => {

@@ -1,5 +1,5 @@
-import { largestAndSecondLargest as l, uniqueLargest } from './uniqueLargest'
 import { input } from './input'
+import { largestAndSecondLargest as l, uniqueLargest } from './uniqueLargest'
 
 it('largestAndSecondLargest should work', () => {
 	expect(l(3, [2, 1, 2])).toMatchObject([2, 1])

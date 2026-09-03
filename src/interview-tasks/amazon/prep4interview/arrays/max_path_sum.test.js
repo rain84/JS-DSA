@@ -1,5 +1,5 @@
-import { max_path_sum } from './max_path_sum.js'
 import { arr } from './input-2.js'
+import { max_path_sum } from './max_path_sum.js'
 
 it('should work', () => {
 	expect(max_path_sum([2, 7], [7, 8])).toBe(17)

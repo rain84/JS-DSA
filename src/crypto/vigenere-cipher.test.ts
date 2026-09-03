@@ -1,4 +1,4 @@
-import { encode, decode, alphabet } from './vigenere-cipher'
+import { alphabet, decode, encode } from './vigenere-cipher'
 
 const keyword = 'шифр'
 const message = 'ЭТОСООБЩЕНИЕНУЖНОЗАКОДИРОВАТЬ'.toLocaleLowerCase()
