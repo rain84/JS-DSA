@@ -55,7 +55,7 @@ it('should have "dfsRecursive()"', () => {
 	expect(edges.toString()).toBe('a-b,b-d,d-e,c-e,e-f')
 })
 
-xit('should have "dfsIterative()"', () => {
+it.skip('should have "dfsIterative()"', () => {
 	// graph.dfsIterative('a', cb)
 	expect(path.join('')).toBe('acefdb')
 	expect(edges.toString()).toBe('a-c, c-e, e-f, f-d, d-b')

@@ -1,6 +1,6 @@
 import { cancellable } from './2650-cancellable'
 
-fit.each(
+it.each(
 	//  prettier-ignore
 	[
 		// [

@@ -18,7 +18,7 @@ it('should initialize', () => {
 	expect(instanceB.counter).toBe(0)
 })
 
-xit('should successfully remove callbacks after each it', () => {})
+it.skip('should successfully remove callbacks after each it', () => {})
 
 it('should not trigger on unknown event', () => {
 	instanceB.trigger('unknown event')
