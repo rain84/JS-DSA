@@ -4,10 +4,10 @@ export const isPangram = (phrase: string): boolean =>
 	new Set(phrase.toLowerCase().replaceAll(/[^a-z]/g, '')).size === 26
 
 export const isPangram2 = (phrase: string): boolean => {
-	const alphabet = [...'abcdefghijklmnopqrstuvwxyz'].reduce<Record<string, number>>(
-		(acc, val) => ((acc[val] = 1), acc),
-		{},
-	)
+	const alphabet = [...'abcdefghijklmnopqrstuvwxyz'].reduce<Record<string, number>>((acc, val) => {
+		acc[val] = 1
+		return acc
+	}, {})
 
 	let count = 0
 	for (const ch of phrase.toLowerCase()) {
