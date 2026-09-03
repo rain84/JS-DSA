@@ -14,8 +14,8 @@ export function robotSim(commands: number[], obstacles: number[][]): number {
 
 	let [x, y] = [0, 0]
 
-	for (const x of commands) {
-		switch (x) {
+	for (const cmd of commands) {
+		switch (cmd) {
 			case -1:
 				d = (d + 1) % 4
 				break
