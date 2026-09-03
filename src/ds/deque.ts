@@ -1,19 +1,19 @@
 // https://en.wikipedia.org/wiki/Double-ended_queue
 
-export class Deque<T> implements IDeque<T> {
-	#head: Node<T> | null = null
-	#tail: Node<T> | null = null
+export class Deque<Value> implements DequeContract<Value> {
+	#head: DequeNode<Value> | null = null
+	#tail: DequeNode<Value> | null = null
 	#size = 0
 
-	constructor(xs?: Iterable<T>) {
+	constructor(xs?: Iterable<Value>) {
 		if (xs) for (const x of xs) this.pushBack(x)
 	}
 
-	get back(): T | undefined {
+	get back(): Value | undefined {
 		return this.#tail?.val
 	}
 
-	get front(): T | undefined {
+	get front(): Value | undefined {
 		return this.#head?.val
 	}
 
@@ -25,17 +25,17 @@ export class Deque<T> implements IDeque<T> {
 		return this.#size === 0
 	}
 
-	at(i: number): T | undefined {
+	at(i: number): Value | undefined {
 		if (i < -this.#size || this.#size <= i) return
 
-		let node: Node<T> | null = null
+		let node: DequeNode<Value> | null = null
 
 		if (i >= 0) {
 			node = this.#head
-			while (i--) node = node?.next!
+			while (i-- !== 0) node = node?.next ?? null
 		} else {
 			node = this.#tail
-			while (++i) node = node?.prev!
+			while (++i !== 0) node = node?.prev ?? null
 		}
 
 		return node?.val
@@ -54,12 +54,16 @@ export class Deque<T> implements IDeque<T> {
 		this.#size = 0
 	}
 
-	popBack(): T | undefined {
+	popBack(): Value | undefined {
 		if (this.#tail === null) return
 
 		const { val, prev } = this.#tail
 
-		if (prev) prev.next = null
+		if (prev) {
+			prev.next = null
+		} else {
+			this.#head = null
+		}
 
 		this.#tail.prev = null
 		this.#tail = prev
@@ -68,12 +72,16 @@ export class Deque<T> implements IDeque<T> {
 		return val
 	}
 
-	popFront(): T | undefined {
+	popFront(): Value | undefined {
 		if (this.#head === null) return
 
 		const { val, next } = this.#head
 
-		if (next) next.prev = null
+		if (next) {
+			next.prev = null
+		} else {
+			this.#tail = null
+		}
 
 		this.#head.next = null
 		this.#head = next
@@ -82,8 +90,8 @@ export class Deque<T> implements IDeque<T> {
 		return val
 	}
 
-	pushBack(val: T): this {
-		const node = new Node(val)
+	pushBack(val: Value): this {
+		const node = new DequeNode(val)
 
 		if (this.isEmpty) {
 			this.#head = this.#tail = node
@@ -98,8 +106,8 @@ export class Deque<T> implements IDeque<T> {
 		return this
 	}
 
-	pushFront(val: T): this {
-		const node = new Node(val)
+	pushFront(val: Value): this {
+		const node = new DequeNode(val)
 
 		if (this.isEmpty) {
 			this.#head = this.#tail = node
@@ -132,30 +140,30 @@ export class Deque<T> implements IDeque<T> {
 	}
 }
 
-interface IDeque<T> {
-	get back(): T | undefined
+interface DequeContract<Value> {
+	get back(): Value | undefined
 	get size(): number
 	get isEmpty(): boolean
-	get front(): T | undefined
+	get front(): Value | undefined
 
-	pushBack(val: T): this
-	pushFront(val: T): this
-	popBack(): T | undefined
-	popFront(): T | undefined
-	at(i: number): T | undefined
+	pushBack(val: Value): this
+	pushFront(val: Value): this
+	popBack(): Value | undefined
+	popFront(): Value | undefined
+	at(i: number): Value | undefined
 	clear(): void
 	toString(): string
 
-	[Symbol.iterator](): IterableIterator<T>
+	[Symbol.iterator](): IterableIterator<Value>
 	[Symbol.toPrimitive](): string
 }
 
-class Node<T> {
-	val: T
-	prev: Node<T> | null = null
-	next: Node<T> | null = null
+class DequeNode<Value> {
+	val: Value
+	prev: DequeNode<Value> | null = null
+	next: DequeNode<Value> | null = null
 
-	constructor(val: T) {
+	constructor(val: Value) {
 		this.val = val
 	}
 }
