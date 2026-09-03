@@ -44,6 +44,7 @@ export const getSequentialDigits = (min: number, max: number) => {
 
 	let sequence = min
 
+	// biome-ignore lint/suspicious/noAssignInExpressions: it's ok
 	while ((sequence = nextSequential(sequence)!) <= max) result.push(sequence++)
 
 	return result
