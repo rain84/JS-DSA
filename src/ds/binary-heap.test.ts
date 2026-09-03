@@ -38,8 +38,8 @@ it('Binary heaps should have "push()" and "pop()"', () => {
 		min: [],
 	}
 
-	while (heap.max?.size) values.max.push(heap.max?.pop()!)
-	while (heap.min?.size) values.min.push(heap.min?.pop()!)
+	while (heap.max?.size) values.max.push(heap.max!.pop()!)
+	while (heap.min?.size) values.min.push(heap.min!.pop()!)
 
 	expect(values.max).toMatchObject(sorted.max!)
 	expect(values.min).toMatchObject(sorted.min!)
