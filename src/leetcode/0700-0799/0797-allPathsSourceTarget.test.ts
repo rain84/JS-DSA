@@ -1,5 +1,5 @@
 import { allPathsSourceTarget } from './0797-allPathsSourceTarget'
-import { sort } from './util'
+import { sort } from '../utils/sort'
 
 it.each(
 	//  prettier-ignore

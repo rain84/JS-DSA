@@ -1,5 +1,5 @@
 import { subsets } from './0078-subsets'
-import { sort } from './util'
+import { sort } from '../utils/sort'
 
 it.each(
 	//  prettier-ignore

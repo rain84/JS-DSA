@@ -1,5 +1,5 @@
 import { generateParenthesis, generateParenthesis2 } from './0022-generateParenthesis'
-import { sort } from './util'
+import { sort } from '../utils/sort'
 
 it.each(
 	//  prettier-ignore
