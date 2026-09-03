@@ -1,4 +1,4 @@
-import type { ListNode } from '../utils/tree'
+import type { ListNode } from '../utils/linked-list'
 
 /**
  * 876. Middle of the Linked List
