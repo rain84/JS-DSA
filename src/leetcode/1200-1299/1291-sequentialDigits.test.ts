@@ -1,4 +1,4 @@
-import { getSequentialDigits, nextSequential } from './sequentialDigits'
+import { getSequentialDigits, nextSequential } from './1291-sequentialDigits'
 
 it('getSequentialDigits() should work', () => {
 	expect(getSequentialDigits(100, 300)).toMatchObject([123, 234])

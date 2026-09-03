@@ -1,4 +1,4 @@
-import { countAndSay } from './38-countAndSay'
+import { countAndSay } from './0038-countAndSay'
 
 it.each(
 	//  prettier-ignore

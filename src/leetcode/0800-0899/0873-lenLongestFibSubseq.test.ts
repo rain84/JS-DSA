@@ -1,4 +1,4 @@
-import { lenLongestFibSubseq } from './873-lenLongestFibSubseq'
+import { lenLongestFibSubseq } from './0873-lenLongestFibSubseq'
 
 it.each(
 	//  prettier-ignore

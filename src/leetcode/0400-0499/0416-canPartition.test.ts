@@ -1,4 +1,4 @@
-import { canPartition } from './416-canPartition'
+import { canPartition } from './0416-canPartition'
 
 it.each(
 	//  prettier-ignore
